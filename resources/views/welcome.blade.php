@@ -14,5 +14,7 @@
 @endsection
 
 @section('content')
-    
+    @include('books.books')
+    {!! $books->render() !!}
 @endsection
+    
