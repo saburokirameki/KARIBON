@@ -47,3 +47,26 @@ footer {
     background-color: #ed486f;
     border-color: #ed486f;
 }
+
+.search {
+    margin-bottom: 20px;
+}
+
+/* book */
+.book .panel-body {
+    height: 70px;
+}
+.book .panel-heading {
+    height: 250px;
+}
+.book .panel-heading img {
+    height: 100%;
+    max-width: 100%;
+}
+p.book-title {
+    /* Keep the number of lines in a sentence on two lines, and add "..." to the end of line. */
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+}
