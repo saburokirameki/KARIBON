@@ -10,17 +10,23 @@ use App\Book;
 
 class BookUserController extends Controller
 {
-    public function have()
+    public function have(Request $request)
     {
-        $bookCode = request()->isbn;
+        //  print '<pre>';
+        //  return print request();
+        $bookCode = request()->bookCode;
+        // return print $bookCode;
 
         // Search items from "itemCode"
         $client = new \RakutenRws_Client();
         $client->setApplicationId(env('RAKUTEN_APPLICATION_ID'));
         $rws_response = $client->execute('BooksTotalSearch', [
-            'isbn' => $bookCode,
+            'isbnjan' => $bookCode,
         ]);
+//  return var_dump($rws_response);        
+
         $rws_book = $rws_response->getData()['Items'][0]['Item'];
+//  return var_dump($rws_book);
 
         // create Item, or get Item if an item is found
         $book = Book::firstOrCreate([

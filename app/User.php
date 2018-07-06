@@ -49,26 +49,20 @@ class User extends Authenticatable
 
     public function dont_have($bookId)
     {
-        // Is the user already "want"?
         $exist = $this->is_having($bookId);
 
-        if ($exist) {
-            // remove "want"
-            \DB::delete("DELETE FROM book_user WHERE user_id = ? AND book_id = ?", [\Auth::id(), $bookId]);
-        } else {
-            // do nothing
-            return false;
-        }
+    if ($exist) {
+        $this->books()->detach($bookId);
+        return true;
+    } else {
+       return false;
+    }
+        
     }
 
     public function is_having($bookIdOrCode)
     {
-        if (is_numeric($bookIdOrCode)) {
-            $book_id_exists = $this->books()->where('book_id', $bookIdOrCode)->exists();
+            $book_id_exists = $this->books()->where('code', $bookIdOrCode)->exists();
             return $book_id_exists;
-        } else {
-            $book_code_exists = $this->books()->where('code', $bookIdOrCode)->exists();
-            return $book_code_exists;
-        }
     }
 }
