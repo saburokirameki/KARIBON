@@ -39,4 +39,15 @@
             'books' => $books,
         ]);
     }
+    
+     public function show($id)
+    {
+      $book = Book::find($id);
+      $have_users = $book->users;
+
+      return view('books.show', [
+          'book' => $book,
+          'have_users' => $have_users,
+      ]);
+    }
   }
