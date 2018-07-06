@@ -21,5 +21,8 @@ Route::post('login', 'Auth\LoginController@login')->name('login.post');
 Route::get('logout', 'Auth\LoginController@logout')->name('logout.get');
 
 Route::group(['middleware' => ['auth']], function () {
-    Route::resource('books', 'BooksController', ['only' => ['create']]);
+    Route::resource('books', 'BooksController', ['only' => ['create', 'show']]);
+    Route::post('have', 'BookUserController@have')->name('book_user.have');
+    Route::delete('have', 'BookUserController@dont_have')->name('book_user.dont_have');
+    Route::resource('users', 'UsersController', ['only' => ['show']]);
 });

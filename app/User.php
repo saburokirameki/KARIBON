@@ -26,4 +26,43 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+    
+    public function books()
+    {
+        return $this->belongsToMany(Book::class)->withTimestamps();
+    }
+
+    public function have($bookId)
+    {
+        // Is the user already "want"?
+        $exist = $this->is_having($bookId);  
+
+        if ($exist) {
+            // do nothing
+            return false;
+        } else {
+            // do "want"
+            $this->books()->attach($bookId);
+            return true;
+        }
+    }
+
+    public function dont_have($bookId)
+    {
+        $exist = $this->is_having($bookId);
+
+    if ($exist) {
+        $this->books()->detach($bookId);
+        return true;
+    } else {
+       return false;
+    }
+        
+    }
+
+    public function is_having($bookIdOrCode)
+    {
+            $book_id_exists = $this->books()->where('code', $bookIdOrCode)->exists();
+            return $book_id_exists;
+    }
 }
