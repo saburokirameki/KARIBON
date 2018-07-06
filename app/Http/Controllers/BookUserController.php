@@ -10,7 +10,7 @@ use App\Book;
 
 class BookUserController extends Controller
 {
-    public function have(Request $request)
+    public function have()
     {
         //  print '<pre>';
         //  return print request();
