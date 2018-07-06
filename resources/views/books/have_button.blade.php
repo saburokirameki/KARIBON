@@ -1,4 +1,4 @@
-@if (Auth::user()->is_having($book->code))
+@if (Auth::user()->is_having($book->id))
     {!! Form::open(['route' => 'book_user.dont_have', 'method' => 'delete']) !!}
         {!! Form::hidden('bookCode', $book->code) !!}
         {!! Form::submit('貸せないわ', ['class' => 'btn btn-success']) !!}

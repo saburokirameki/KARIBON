@@ -46,10 +46,12 @@ class BookUserController extends Controller
 
     public function dont_have()
     {
-        $bookCode = request()->isbn;
-
+        $bookCode = request()->bookCode;
+       
         if (\Auth::user()->is_having($bookCode)) {
             $bookId = Book::where('code', $bookCode)->first()->id;
+            
+            
             \Auth::user()->dont_have($bookId);
         }
         return redirect()->back();
