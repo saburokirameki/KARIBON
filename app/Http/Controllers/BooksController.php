@@ -20,7 +20,7 @@
             $rws_response = $client->execute('BooksTotalSearch', [
                 'keyword' => $keyword,
                 'imageFlag' => 1,
-                'hits' => 20,
+                'hits' => 30,
             ]);
 
             // Creating "Book" instance to make it easy to handle.（not saving）
@@ -33,6 +33,8 @@
                 $books[] = $book;
             }
         }
+        
+        
 
         return view('books.create', [
             'keyword' => $keyword,
