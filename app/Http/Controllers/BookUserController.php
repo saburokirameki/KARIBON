@@ -50,8 +50,6 @@ class BookUserController extends Controller
        
         if (\Auth::user()->is_having($bookCode)) {
             $bookId = Book::where('code', $bookCode)->first()->id;
-            
-            
             \Auth::user()->dont_have($bookId);
         }
         return redirect()->back();
