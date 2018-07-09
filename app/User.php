@@ -61,9 +61,10 @@ class User extends Authenticatable
         
     }
 
-    public function is_having($bookId)
+    public function is_having($bookCode)
     {
-           return  $this->books()->where('code', $bookId)->exists();
+           $item_code_exists = $this->have_items()->where('code', $bookCode)->exists();
+            return $item_code_exists;
            
     }
 }
