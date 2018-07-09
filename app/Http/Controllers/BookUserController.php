@@ -33,6 +33,8 @@ class BookUserController extends Controller
             'code' => $rws_book['isbn'],
             'name' => $rws_book['title'],
             'url' => $rws_book['itemUrl'],
+            
+            
             // remove "?_ex=128x128" because its size is defined
             'image_url' => str_replace('?_ex=128x128', '', $rws_book['mediumImageUrl']),
         ]);
@@ -44,8 +46,7 @@ class BookUserController extends Controller
 
     public function dont_have()
     {
-        $bookCode = request()->isbn;
-
+        $bookCode = request()->bookCode;
         if (\Auth::user()->is_having($bookCode)) {
             $bookId = Book::where('code', $bookCode)->first()->id;
             \Auth::user()->dont_have($bookId);
