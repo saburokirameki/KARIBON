@@ -29,7 +29,7 @@ class User extends Authenticatable
     
     public function books()
     {
-        return $this->belongsToMany(Book::class, 'book_user','user_id','book_id')->withTimestamps();
+        return $this->belongsToMany(Book::class)->withTimestamps();
     }
 
     public function have($bookId)
@@ -49,22 +49,28 @@ class User extends Authenticatable
 
     public function dont_have($bookId)
     {
+        
         $exist = $this->is_having($bookId);
           
-          
-    if ($exist) {
-        $this->books()->detach($bookId);
-        return true;
-    } else {
-       return false;
-    }
+        if ($exist) {
+            \DB::delete("DELETE FROM book_user WHERE user_id = ? AND book_id = ?", [$this->id, $bookId]);
+            return true;
+        } else {
+           return false;
+        }
         
     }
 
-    public function is_having($bookCode)
+
+    public function is_having($bookIdOrCode)
     {
-           $item_code_exists = $this->have_items()->where('code', $bookCode)->exists();
-            return $item_code_exists;
-           
+        if (strlen($bookIdOrCode)>9) {
+            $book_code_exists = $this->books()->where('code', $bookIdOrCode)->exists();
+            return $book_code_exists;
+        } else {
+            $book_id_exists = $this->books()->where('book_id', $bookIdOrCode)->exists();
+            return $book_id_exists;
+        }
+
     }
 }
