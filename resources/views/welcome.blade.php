@@ -13,8 +13,33 @@
     </div>
 @endsection
 
-@section('content')
-    @include('books.books')
+@section('content')    
+    <div class="karireu-list">借りれる本一覧</div>
+
+    @if ($books)
+<div class="row">
+        @foreach ($books as $book)
+            @if (is_numeric($book->code))
+                <div class="book">
+                    <div class="col-md-3 col-sm-4 col-xs-12">
+                        <div class="panel panel-default">
+                            <div class="panel-heading text-center">
+                                <img src="{{ $book->image_url }}" alt="" class="">
+                            </div>
+                            <div class="panel-body">
+                                @if ($book->id)
+                                    <p class="book-title"><a href="{{ route('books.show', $book->id) }}">{{ $book->name }}</a></p>
+                                @else
+                                    <p class="book-title">{{ $book->name }}</p>
+                                @endif
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            @endif
+        @endforeach
+    </div>
+@endif
     {!! $books->render() !!}
 @endsection
     
