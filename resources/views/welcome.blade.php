@@ -19,7 +19,7 @@
     @if ($books)
 <div class="row">
         @foreach ($books as $book)
-            @if (is_numeric($book->code))
+            @if ($book->users()->exists())
                 <div class="book">
                     <div class="col-md-3 col-sm-4 col-xs-12">
                         <div class="panel panel-default">
@@ -32,6 +32,9 @@
                                 @else
                                     <p class="book-title">{{ $book->name }}</p>
                                 @endif
+                                <div class="buttons text-center">
+                                    <input type="button" onclick="location.href='{{ route('books.show', $book->id) }}'"value="借りる">
+                                </div>
                             </div>
                         </div>
                     </div>
