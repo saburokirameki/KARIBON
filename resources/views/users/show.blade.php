@@ -8,17 +8,17 @@
         <div class="name text-center">
             <h1>{{ $user->name }}</h1>
         </div>
+        <div class="tuika-button text-center">
+                <a href="{{ route('books.create') }}">
+                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                    貸せる本を追加
+                </a>
+        </div>
+      
         <div class="status text-center">
-            <ul>
-                <li>
-                    <div class="status-label">貸すわよ</div>
-                    <div id="have_count" class="status-value">
-                        {{ $count_have }}
-                    </div>
-                </li>
-            </ul>
+                    <div class="status-label"　id="have_count">貸せる本{{ $count_have }}冊</div>
         </div>
     </div>
-    @include('books.books', ['books' => $books])
+   @include('books.books')
     {!! $books->render() !!}
 @endsection
