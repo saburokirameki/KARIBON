@@ -3,6 +3,7 @@
 /* body */
 body {
     background: #f9f5f2;
+    font-family: 'メイリオ';
 }
 footer {
     margin-top: 40px;
@@ -72,7 +73,6 @@ footer {
 p.book-title {
     /* Keep the number of lines in a sentence on two lines, and add "..." to the end of line. */
     font-size: 20px;
-    font-family: 'メイリオ';
     text-align: center;
     display: -webkit-box;
     -webkit-box-orient: vertical;
@@ -97,26 +97,51 @@ p.book-title {
     text-shadow: 1px 1px 1px #fff;
     font-weight: bold;
 }
-.user-profile .status ul {
+
+.user-profile .tuika-button {
+    font-size: 20px;
+    position: relative;
+    display: inline-block;
+    padding: 0.25em 0.5em;
+    text-decoration: none;
+    background:  #ffffff;
+    border-radius: 4px;/*角の丸み*/
+    box-shadow: inset 0 2px 0 rgba(255,255,255,0.2), 0 2px 2px rgba(0, 0, 0, 0.19);
+    font-weight: bold;
+    font-color: #ffffff;
+    horizontal-align: center;
+}
+
+.user-profile .status  {
     margin: 0 auto 10px;
     padding: 0;
-    display: table;
+    /*display: table;*/
 }
-.user-profile .status ul li {
-    width: 120px;
+.user-profile .status  {
     padding: 5px 0;
     border-right: 1px solid #ddd;
-    display: table-cell;
+    /*display: table-cell;*/
     vertical-align: middle;
     text-align: center;
     color: #777;
 }
-.user-profile .status ul li:last-child {
+.user-profile .status :last-child {
     border: none;
 }
-.user-profile .status ul li .status-label {
-    font-size: 12px;
+.user-profile .status .status-label {
+    color: #dc143c;
+    font-size: 20px;
+    border-bottom: dashed 2px #2e8b57;
 }
-.user-profile .status ul li .status-value {
+.user-profile .status  .status-value {
     font-size: 18px;
+}
+.karireu-list {
+    font-size: 20px;
+    text-align: center;
+    color: #2e8b57;
+    font-weight: bold;
+    margin-bottom: 15px;
+    border-bottom: double 5px #FFC778;
+    
 }
