@@ -87,7 +87,12 @@ p.book-title {
 .book .buttons form {
     display: inline-block;
     margin: 0 5px;
+    background-color: #2e8b57; 
 }
+
+
+
+
 
 /* users */
 .user-profile .name {
@@ -145,3 +150,5 @@ p.book-title {
     border-bottom: double 5px #FFC778;
     
 }
+
+.
