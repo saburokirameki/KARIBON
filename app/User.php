@@ -61,6 +61,7 @@ class User extends Authenticatable
         
     }
 
+
     public function is_having($bookIdOrCode)
     {
         if (strlen($bookIdOrCode)>9) {
@@ -70,5 +71,6 @@ class User extends Authenticatable
             $book_id_exists = $this->books()->where('book_id', $bookIdOrCode)->exists();
             return $book_id_exists;
         }
+
     }
 }

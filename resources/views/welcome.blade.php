@@ -18,8 +18,8 @@
     <div class="karireu-list">借りれる本一覧</div>
 
         {!! Form::open(['method' => 'GET']) !!}
-        {!! Form::text('s', null) !!}
-        {!! Form::submit('検索') !!}
+        {!! Form::text('s' , null) !!}
+        {!! Form::submit('借りれる本を検索') !!}
         {!! Form::close() !!}   
        
         @if (count($data) > 0)
@@ -47,6 +47,7 @@
                         </div>
                     @endif
                 @endforeach
+               {!! $data->render() !!}
         @else
             <div class = "kariru-search text-center">検索ヒット件数：０</div>
                 <div class="row">
@@ -72,11 +73,15 @@
                         </div>
                     </div>
                 @endif
+                
+                
             @endforeach
+            　 {!! $books->render() !!}
             </div>
+            
         @endif
     
     
-    {!! $books->render() !!}
+   
 @endsection
     
