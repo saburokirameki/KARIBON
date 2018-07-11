@@ -151,4 +151,7 @@ p.book-title {
     
 }
 
-.
+.kariru-search {
+    border-bottom: dashed 2px #2e8b57;
+    margin-bottom: 10px;
+}

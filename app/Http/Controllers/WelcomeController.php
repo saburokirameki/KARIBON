@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use Request;
 
 use App\Http\Controllers\Controller;
 
 use App\Book;
+
 
 class WelcomeController extends Controller
 {
@@ -19,8 +20,21 @@ class WelcomeController extends Controller
     {
         $books = Book::orderBy('updated_at', 'desc')->paginate(20);
         
+        // 検索するテキスト取得
+        $search = Request::get('s');
+        $query = Book::query();
+        // 検索するテキストが入力されている場合のみ
+        if(!empty($search)) {
+            $query->where('name', 'like', '%'.$search.'%');
+        }
+        $data = $query->get();
+        
         return view('welcome', [
             'books' => $books,
+            'data' => $data,
+            'search' => $search,
         ]);
+
     }
+    
 }
