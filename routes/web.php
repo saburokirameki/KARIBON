@@ -26,3 +26,5 @@ Route::group(['middleware' => ['auth']], function () {
     Route::delete('have', 'BookUserController@dont_have')->name('book_user.dont_have');
     Route::resource('users', 'UsersController', ['only' => ['show']]);
 });
+
+
