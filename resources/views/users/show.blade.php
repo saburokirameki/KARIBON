@@ -8,13 +8,14 @@
         <div class="name text-center">
             <h1>{{ $user->name }}</h1>
         </div>
-        <div class="tuika-button text-center">
-                <a href="{{ route('books.create') }}">
-                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-                    貸せる本を追加
-                </a>
-        </div>
-      
+        @if(Auth::id()==$user->id)
+            <div class="tuika-button text-center">
+                    <a href="{{ route('books.create') }}">
+                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                        貸せる本を追加
+                    </a>
+            </div>
+        @endif      
         <div class="status text-center">
                     <div class="status-label"　id="have_count">貸せる本{{ $count_have }}冊</div>
         </div>

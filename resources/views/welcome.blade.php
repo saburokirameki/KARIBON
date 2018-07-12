@@ -5,23 +5,19 @@
         <div class="cover-inner">
             <div class="cover-contents">
                 <h1>みんなで作る図書館</h1>
-                @if (!Auth::check())
-                    <a href="{{ route('signup.get') }}" class="btn btn-success btn-lg">KARIBONを始める</a>
-                @endif
+                
+                    <form id="form1" action="/">
+                    <input id="sbox" name="s" type="text" placeholder="キーワードを入力" />
+                    <input id="sbtn" type="submit" value="借りられる本を検索" />
+                    </form>
+                    
             </div>
         </div>
     </div>
 @endsection
 
-
 @section('content')    
-    <div class="karireu-list">借りれる本一覧</div>
-
-        {!! Form::open(['method' => 'GET']) !!}
-        {!! Form::text('s' , null) !!}
-        {!! Form::submit('借りれる本を検索') !!}
-        {!! Form::close() !!}   
-       
+    <div class="karireu-list">今すぐ借りられる本一覧</div>
         @if (count($data) > 0)
             <div class="row">
                 @foreach ($data as $book)
