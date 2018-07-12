@@ -11,7 +11,7 @@
                     <div class="panel-body">
                         <p class="book-title">{{ $book->name }}</p>
                         <div class="buttons text-center">
-                            @if (Auth::check())
+                            @if (Auth::user()->is_having($book->code))
                                 @include('books.have_button', ['book' => $book])
                             @endif
                         </div>
