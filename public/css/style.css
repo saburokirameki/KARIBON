@@ -47,7 +47,8 @@ footer {
     font-family: 'Yu Gothic UI';
     letter-spacing: 0.15em;
 }
-.cover .btn-success {
+.btn-hajimeru {
+    color: #ffffff;
     background-color: #ed486f;
     border-color: #ed486f;
 }
@@ -154,4 +155,41 @@ p.book-title {
 .kariru-search {
     border-bottom: dashed 2px #2e8b57;
     margin-bottom: 10px;
+}
+
+#form1{
+position: relative;
+text-align: center;
+}
+#sbox {
+height: 50px;
+padding: 0 10px;
+position: absolute;
+left: 0;
+top: 0;
+width:315px;
+border-radius:2px 0 0 2px;
+border-right:none;
+border:solid 3px #eaeaea;
+outline: 0;
+}
+#sbtn{
+padding: 0;
+width: 160px;
+height: 50px;
+position: absolute;
+left: 315px;
+top: 0;
+border-radius:0 2px 2px 0;
+background:#7fbfff;
+color:#fff;
+border:solid 3px #eaeaea;
+border-left:none;
+font-weight:bold;
+font-size:16px;
+outline: 0;
+}
+#sbtn:hover{
+background:#eaeaea;
+color:#7fbfff;
 }
