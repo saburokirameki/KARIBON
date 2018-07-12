@@ -14,10 +14,15 @@
                         {!! Form::label('name', 'Nickname') !!}
                         {!! Form::text('name', old('name'), ['class' => 'form-control']) !!}
                     </div>
-    
+                    
+                     <div class="form-group">
+                        {!! Form::label('home', 'Home Team  (GHRスタッフの方⇒「GHR」、メンターさん⇒「mentor」)')!!}
+                        {!! Form::text('home', old('home'), ['class' => 'form-control','placeholder' => 'ex) 2-B']) !!}
+                    </div>
+                    
                     <div class="form-group">
                         {!! Form::label('password', 'Password') !!}
-                        {!! Form::password('password', ['class' => 'form-control']) !!}
+                        {!! Form::password('password', ['class' => 'form-control','placeholder' => '6文字以上必要です']) !!}
                     </div>
     
                     <div class="form-group">
