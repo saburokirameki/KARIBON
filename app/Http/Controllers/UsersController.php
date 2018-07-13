@@ -24,7 +24,7 @@ class UsersController extends Controller
         return view('users.show', [
             'user' => $user,
             'books' => $books,
-            'count_have' => $count_have,
+            'count_have' => $count_users,
         ]);
     }
 }

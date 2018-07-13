@@ -52,4 +52,17 @@
           'have_users' => $have_users,
       ]);
     }
+    
+     public function goodluck($id)
+    {
+      $book = Book::find($id);
+      $have_users = $book->users;
+      $count_users = $have_users->count();
+
+      return view('books.goodluck', [
+          'book' => $book,
+          'have_users' => $have_users,
+          'count_users' => $count_users,
+      ]);
+    }
   }
