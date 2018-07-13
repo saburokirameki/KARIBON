@@ -19,9 +19,7 @@
                                        @include('books.have_button', ['book' => $book])
                                 
                                      @else
-                                         <div class="buttons text-center">
-                                          <input type="button" onclick="location.href='{{ route('books.goodluck', $book->id) }}'"value="借りる">
-                                         </div>
+                                        <a href='{{ route('books.goodluck', $book->id) }}' class="cp_btn text-center">借りる</a>
                                      @endif
                                 </div>
                             </div>
