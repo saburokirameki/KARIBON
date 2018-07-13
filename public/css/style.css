@@ -214,3 +214,13 @@ a.cp_btn:hover {
 text-shadow: -6px 0px 15px rgba(255, 255, 240, 0.83), 6px 0px 15px rgba(255, 255, 240, 0.83);
 transition: .4s;
 }
+
+.jibunmo {
+    color: #fff;
+    background-color: #7fbfff;
+    text-align: center;
+    border:solid 3px #eaeaea;
+    height: 35px;
+    width: 150px;
+    border-radius: 8px;/*角の丸み*/
+}

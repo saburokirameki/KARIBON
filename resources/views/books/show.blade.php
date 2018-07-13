@@ -35,6 +35,14 @@
                         <br>
                         
                         @endforeach
+                    <div class='text-center'>    
+                        @if (!(Auth::user()->is_having($book->code)))
+                                {!! Form::open(['route' => 'book_user.have']) !!}
+                                {!! Form::hidden('bookCode', $book->code) !!}
+                                {!! Form::submit('＋自分も貸す', ['class' =>'jibunmo']) !!}
+                                {!! Form::close() !!}
+                        @endif
+                    </div>
                     </div>
                 </div>
             </div>
