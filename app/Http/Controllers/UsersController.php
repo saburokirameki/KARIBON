@@ -27,4 +27,13 @@ class UsersController extends Controller
             'count_have' => $count_have,
         ]);
     }
+    
+    public function index()
+    {
+        $users = User::all();
+
+        return view('users.index', [
+            'users' => $users,
+        ]);
+    }
 }

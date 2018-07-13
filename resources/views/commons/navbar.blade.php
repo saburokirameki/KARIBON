@@ -13,9 +13,14 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     @if (Auth::check())
-                       <li>
-                                    <a href="{{ route('books.create') }}">貸す本を追加</a>
-                                </li>
+                        <li>
+                            <a href="{{ route('books.create') }}">貸す本を追加</a>
+                        </li>
+                        
+                        <li>
+                            <a href="{{ route('users.index') }}">ユーザ一覧</a>
+                        </li>
+                        
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                                 <span class="gravatar">
