@@ -31,7 +31,9 @@
                                     <div class="panel-body">
                                         @if ($book->id)
                                             <p class="book-title"><a href="{{ route('books.show', $book->id) }}">{{ $book->name }}</a></p>
+                                            <div class="buttons text-center">
                                             <input type="button" onclick="location.href='{{ route('books.goodluck', $book->id) }}'"value="借りる">
+                                            </div>
                                         @else
                                             <p class="book-title">{{ $book->name }}</p>
                                         @endif

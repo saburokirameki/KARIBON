@@ -13,6 +13,11 @@
                         <div class="buttons text-center">
                             @if (Auth::user()->is_having($book->code))
                                 @include('books.have_button', ['book' => $book])
+                                
+                            @else
+                                 <div class="buttons text-center">
+                                  <input type="button" onclick="location.href='{{ route('books.goodluck', $book->id) }}'"value="借りる">
+                                 </div>
                             @endif
                         </div>
                     </div>
@@ -30,6 +35,7 @@
                         @foreach ($have_users as $user)
                             <a href="{{ route('users.show', $user->id) }}">{{ $user->name }}</a>
                         <br>
+                        
                         @endforeach
                     </div>
                 </div>
