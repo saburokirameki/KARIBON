@@ -31,9 +31,7 @@
                                     <div class="panel-body">
                                         @if ($book->id)
                                             <p class="book-title"><a href="{{ route('books.show', $book->id) }}">{{ $book->name }}</a></p>
-                                            <div class="buttons text-center">
-                                            <input type="button" onclick="location.href='{{ route('books.goodluck', $book->id) }}'"value="借りる">
-                                            </div>
+                                                 <a href='{{ route('books.goodluck', $book->id) }}' class="cp_btn text-center">借りる</a>
                                         @else
                                             <p class="book-title">{{ $book->name }}</p>
                                         @endif
@@ -61,9 +59,7 @@
                                     @else
                                         <p class="book-title">{{ $book->name }}</p>
                                     @endif
-                                    <div class="buttons text-center">
-                                        <input type="button" onclick="location.href='{{ route('books.goodluck', $book->id) }}'"value="借りる">
-                                    </div>
+                                    <a href='{{ route('books.goodluck', $book->id) }}' class="cp_btn text-center">借りる</a>
                                 </div>
                             </div>
                         </div>
