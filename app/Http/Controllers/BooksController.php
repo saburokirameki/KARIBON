@@ -30,6 +30,7 @@
                 $book->name = $rws_book['Item']['title'];
                 $book->url = $rws_book['Item']['itemUrl'];
                 $book->image_url = str_replace('?_ex=128x128', '', $rws_book['Item']['mediumImageUrl']);
+                $book->booksgenreid = $rws_book['Item']['booksGenreId'];
                 $books[] = $book;
             }
         }

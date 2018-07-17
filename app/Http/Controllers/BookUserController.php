@@ -37,6 +37,7 @@ class BookUserController extends Controller
             
             // remove "?_ex=128x128" because its size is defined
             'image_url' => str_replace('?_ex=128x128', '', $rws_book['mediumImageUrl']),
+            'booksgenreid' => $rws_book['booksGenreId'],
         ]);
 
         \Auth::user()->have($book->id);
