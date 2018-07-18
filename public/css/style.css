@@ -2,7 +2,7 @@
 
 /* body */
 body {
-    background: #f9f5f2;
+    background: transparent;
     font-family: 'メイリオ';
 }
 footer {
@@ -64,12 +64,15 @@ footer {
 }
 
 .book .panel-heading {
-    background-color: #ffe4e1;
+    background-color: transparent;
     height: 250px;
 }
 .book .panel-heading img {
     height: 100%;
     max-width: 100%;
+}
+.goodluck .panel-heading img {
+    height: 250px;
 }
 p.book-title {
     /* Keep the number of lines in a sentence on two lines, and add "..." to the end of line. */
@@ -197,8 +200,10 @@ color:#7fbfff;
 }
 
 a.cp_btn {
-position: relative;
+position: absolute;
 display: block;
+top: 330px;
+left: 100px;
 width: 100px;
 padding: 0.4em;
 text-align: center;

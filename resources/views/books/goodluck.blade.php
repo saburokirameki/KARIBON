@@ -1,9 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
+    <div class="goodluck">
     <div class="panel-heading text-center">
         <img src="{{ $book->image_url }}" alt="" class="">
         <P>この本を貸してくれる人は{{ $count_users }}人います＾＾</P>
+    </div>
     </div>
     <div class="col-md-offset-3 col-md-6 col-lg-offset-3 col-lg-6">
        <table class="table table-striped">

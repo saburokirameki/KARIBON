@@ -29,7 +29,7 @@
                 $book->code = $rws_book['Item']['isbn'];
                 $book->name = $rws_book['Item']['title'];
                 $book->url = $rws_book['Item']['itemUrl'];
-                $book->image_url = str_replace('?_ex=128x128', '', $rws_book['Item']['mediumImageUrl']);
+                $book->image_url = str_replace('?_ex=200x200', '', $rws_book['Item']['largeImageUrl']);
                 $book->booksgenreid = $rws_book['Item']['booksGenreId'];
                 $books[] = $book;
             }

@@ -36,7 +36,7 @@ class BookUserController extends Controller
             
             
             // remove "?_ex=128x128" because its size is defined
-            'image_url' => str_replace('?_ex=128x128', '', $rws_book['mediumImageUrl']),
+            'image_url' => str_replace('?_ex=200x200', '', $rws_book['largeImageUrl']),
             'booksgenreid' => $rws_book['booksGenreId'],
         ]);
 
