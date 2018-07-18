@@ -14,7 +14,7 @@ class AddBooksgenreidToBooksTable extends Migration
     public function up()
     {
         Schema::table('books', function (Blueprint $table) {
-             $table->string('booksgenreid');
+             $table->string('booksgenreid')->nullable();
         });
     }
 
