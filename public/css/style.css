@@ -90,11 +90,13 @@ p.book-title {
 }
 .book .buttons form {
     display: inline-block;
-    margin: 0 5px;
+    position: absolute;
+    top: 330px;
+    left: 80px;
+    width: 100px;
     background-color: #2e8b57; 
+    border-radius: 8px;/*角の丸み*/
 }
-
-
 
 
 

@@ -66,4 +66,101 @@
           'count_users' => $count_users,
       ]);
     }
+    
+    public function business()
+    {
+        $query = Book::query();
+       
+        $query->where('booksgenreid', 'like', '%'.'001006'.'%');
+        
+        $books = $query->paginate(300);
+        
+        return view('books.business', [
+            'books' => $books,
+        ]);
+    }
+    
+    public function lang()
+    {
+        $query = Book::query();
+       
+        $query->where('booksgenreid', 'like', '%'.'001002'.'%');
+        
+        $books = $query->paginate(300);
+        
+        return view('books.lang', [
+            'books' => $books,
+        ]);
+    }
+    
+    public function novel()
+    {
+        $query = Book::query();
+       
+        $query->where('booksgenreid', 'like', '%'.'001004'.'%');
+        
+        $books = $query->paginate(300);
+        
+        return view('books.novel', [
+            'books' => $books,
+        ]);
+    }
+    
+    public function pc()
+    {
+        $query = Book::query();
+       
+        $query->where('booksgenreid', 'like', '%'.'001005'.'%');
+        
+        $books = $query->paginate(300);
+        
+        return view('books.pc', [
+            'books' => $books,
+        ]);
+    }
+    
+    public function shikaku()
+    {
+        $query = Book::query();
+       
+        $query->where('booksgenreid', 'like', '%'.'001016'.'%');
+        
+        $books = $query->paginate(300);
+        
+        return view('books.shikaku', [
+            'books' => $books,
+        ]);
+    }
+    
+    public function society()
+    {
+        $query = Book::query();
+       
+        $query->where('booksgenreid', 'like', '%'.'001008'.'%');
+        
+        $books = $query->paginate(300);
+        
+        return view('books.society', [
+            'books' => $books,
+        ]);
+    }
+    
+    public function others()
+    {
+        $query = Book::query();
+       
+        $query->where('booksgenreid', 'not like', '%'.'001005'.'%')
+              ->orwhere('booksgenreid', 'not like',  '%'.'001006'.'%')
+              ->orwhere('booksgenreid', 'not like',  '%'.'001004'.'%')
+              ->orwhere('booksgenreid', 'not like',  '%'.'001016'.'%')
+              ->orwhere('booksgenreid', 'not like',  '%'.'001002'.'%')
+              ->orwhere('booksgenreid', 'not like',  '%'.'001008'.'%')
+              ->orwherenull('booksgenreid');
+        
+        $books = $query->paginate(300);
+        
+        return view('books.others', [
+            'books' => $books,
+        ]);
+    }
   }

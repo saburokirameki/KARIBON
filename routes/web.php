@@ -19,6 +19,14 @@ Route::post('signup', 'Auth\RegisterController@register')->name('signup.post');
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
 Route::post('login', 'Auth\LoginController@login')->name('login.post');
 Route::get('logout', 'Auth\LoginController@logout')->name('logout.get');
+   
+Route::get('books/business', 'BooksController@business')->name('books.business');
+Route::get('books/lang', 'BooksController@lang')->name('books.lang');
+Route::get('books/novel', 'BooksController@novel')->name('books.novel');
+Route::get('books/pc', 'BooksController@pc')->name('books.pc');
+Route::get('books/shikaku', 'BooksController@shikaku')->name('books.shikaku');
+Route::get('books/society', 'BooksController@society')->name('books.society');
+Route::get('books/others', 'BooksController@others')->name('books.others');
 
 Route::group(['middleware' => ['auth']], function () {
     Route::resource('books', 'BooksController', ['only' => ['create', 'show']]);
