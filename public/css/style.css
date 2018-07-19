@@ -74,6 +74,10 @@ footer {
 .goodluck .panel-heading img {
     height: 250px;
 }
+.goodluck .table {
+    font-size: 20px;
+}
+
 p.book-title {
     /* Keep the number of lines in a sentence on two lines, and add "..." to the end of line. */
     font-size: 20px;
@@ -230,4 +234,5 @@ transition: .4s;
     height: 35px;
     width: 150px;
     border-radius: 8px;/*角の丸み*/
+    
 }
