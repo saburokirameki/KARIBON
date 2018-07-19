@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', 'WelcomeController@index');
+Route::get('/', 'WelcomeController@index')->name('welcome');
 
 Route::get('signup', 'Auth\RegisterController@showRegistrationForm')->name('signup.get');
 Route::post('signup', 'Auth\RegisterController@register')->name('signup.post');
@@ -27,13 +27,15 @@ Route::get('books/pc', 'BooksController@pc')->name('books.pc');
 Route::get('books/shikaku', 'BooksController@shikaku')->name('books.shikaku');
 Route::get('books/society', 'BooksController@society')->name('books.society');
 Route::get('books/others', 'BooksController@others')->name('books.others');
+Route::get('books/rakuten', 'BooksController@rakuten')->name('books.rakuten');
 
 Route::group(['middleware' => ['auth']], function () {
     Route::resource('books', 'BooksController', ['only' => ['create', 'show']]);
     Route::get('books/{id}/goodluck', 'BooksController@goodluck')->name('books.goodluck');
     Route::post('have', 'BookUserController@have')->name('book_user.have');
     Route::delete('have', 'BookUserController@dont_have')->name('book_user.dont_have');
-    Route::resource('users', 'UsersController', ['only' => ['show','index']]);
+    Route::resource('users', 'UsersController', ['only' => ['show','index','destroy']]);
+    Route::get('taikai', 'UsersController@taikai')->name('users.taikai');
 });
 
 

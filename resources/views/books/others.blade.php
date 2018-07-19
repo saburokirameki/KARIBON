@@ -20,15 +20,15 @@
     <div class="karireu-list">今すぐ借りられる本一覧</div>
     
     <ul class="nav nav-tabs nav-justified">
-    <li role="presentation" class="{{ Request::is('users/' ) ? 'active' : '' }}"><a href="/">すべて</a></li>
-    <li role="presentation" class="{{ Request::is('users/') ? 'active' : '' }}"><a href="#">楽天</a></li>
-    <li role="presentation" class="{{ Request::is('users/') ? 'active' : '' }}"><a href="{{ route('books.pc') }}">システム開発</a></li>
-    <li role="presentation" class="{{ Request::is('users/') ? 'active' : '' }}"><a href="{{ route('books.business') }}">ビジネス</a></li>
-    <li role="presentation" class="{{ Request::is('users/') ? 'active' : '' }}"><a href="{{ route('books.novel') }}">小説</a></li>
-    <li role="presentation" class="{{ Request::is('users/' ) ? 'active' : '' }}"><a href="{{ route('books.shikaku') }}">資格</a></li>
-    <li role="presentation" class="{{ Request::is('users/') ? 'active' : '' }}"><a href="{{ route('books.lang') }}">語学</a></li>
-    <li role="presentation" class="{{ Request::is('users/') ? 'active' : '' }}"><a href="{{ route('books.society') }}">人文/社会</a></li>
-    <li role="presentation" class="{{ Request::is('users/') ? 'active' : '' }}"><a href="{{ route('books.others') }}">その他</a></li>
+    <li role="presentation" class="{{ Request::is('/' ) ? 'active' : '' }}"><a href="/">すべて</a></li>
+    <li role="presentation" class="{{ Request::is('books/rakuten') ? 'active' : '' }}"><a href="{{ route('books.rakuten') }}">楽天</a></li>
+    <li role="presentation" class="{{ Request::is('books/pc') ? 'active' : '' }}"><a href="{{ route('books.pc') }}">システム開発</a></li>
+    <li role="presentation" class="{{ Request::is('books/business') ? 'active' : '' }}"><a href="{{ route('books.business') }}">ビジネス</a></li>
+    <li role="presentation" class="{{ Request::is('books/novel') ? 'active' : '' }}"><a href="{{ route('books.novel') }}">小説</a></li>
+    <li role="presentation" class="{{ Request::is('books/shikaku' ) ? 'active' : '' }}"><a href="{{ route('books.shikaku') }}">資格</a></li>
+    <li role="presentation" class="{{ Request::is('books/lang') ? 'active' : '' }}"><a href="{{ route('books.lang') }}">語学</a></li>
+    <li role="presentation" class="{{ Request::is('books/society') ? 'active' : '' }}"><a href="{{ route('books.society') }}">人文/社会</a></li>
+    <li role="presentation" class="{{ Request::is('books/others') ? 'active' : '' }}"><a href="{{ route('books.others') }}">その他</a></li>
     </ul>
     
         @if (count($books) > 0)

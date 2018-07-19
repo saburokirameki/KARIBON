@@ -36,4 +36,21 @@ class UsersController extends Controller
             'users' => $users,
         ]);
     }
+    
+    public function taikai()
+    {
+       $user = \Auth::user();
+       
+        return view('users.taikai',['user'=> $user]);
+    }
+    
+    public function destroy($id)
+    {
+        $user = User::find($id);    
+       
+         $user->delete();
+       
+        return redirect()->back();
+    }
+   
 }
