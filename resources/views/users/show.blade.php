@@ -22,4 +22,6 @@
     </div>
    @include('books.books')
     {!! $books->render() !!}
+    
+    <p class='text-right'>{!! link_to_route('users.taikai', '退会') !!}</p>
 @endsection

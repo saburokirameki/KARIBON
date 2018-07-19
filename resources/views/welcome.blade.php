@@ -85,8 +85,6 @@
             </div>
             
         @endif
-    <p class='text-right'>{!! link_to_route('users.taikai', '退会') !!}</p>
-    
    
 @endsection
     
