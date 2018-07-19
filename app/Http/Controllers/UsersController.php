@@ -37,6 +37,20 @@ class UsersController extends Controller
         ]);
     }
     
+    public function store(Request $request)
+    {
+        $this->validate($request, [
+            'content' => 'required|max:191',
+        ]);
+
+        $request->user()->microposts()->create([
+            'content' => $request->content,
+        ]);
+
+        return redirect()->back();
+    }
+    
+    
     public function taikai()
     {
        $user = \Auth::user();

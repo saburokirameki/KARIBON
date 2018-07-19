@@ -14,4 +14,9 @@ class Book extends Model
         return $this->belongsToMany(User::class)->withTimestamps();
     }
 
+
+    public function microposts()
+    {
+        return $this->hasMany(Micropost::class);
+    }
 }

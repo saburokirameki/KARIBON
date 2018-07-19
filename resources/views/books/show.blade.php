@@ -46,6 +46,19 @@
                     </div>
                 </div>
             </div>
+            
+            
+                  {!! Form::open(['route' => 'users.store']) !!}
+                      <div class="form-group">
+                          {!! Form::textarea('content', old('content'), ['class' => 'form-control', 'rows' => '2']) !!}
+                          {!! Form::submit('Post', ['class' => 'btn btn-primary btn-block']) !!}
+                      </div>
+                  {!! Form::close() !!}
+                  
+                  
+           
+            
+            
             <p class="text-center"><a href="{{ $book->url }}" target="_blank">楽天ブックス詳細ページへ</a></p>
         </div>
     </div>
