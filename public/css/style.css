@@ -102,6 +102,11 @@ p.book-title {
     border-radius: 8px;/*角の丸み*/
 }
 
+.media-list .media-body {
+    word-break: break-all;
+    border:1px solid #CCCCCC;
+    padding:10px;
+}
 
 
 /* users */

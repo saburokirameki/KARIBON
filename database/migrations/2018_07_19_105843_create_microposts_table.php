@@ -17,7 +17,7 @@ class CreateMicropostsTable extends Migration
             $table->increments('id');
             $table->integer('book_id')->unsigned()->index();
             $table->integer('user_id')->unsigned()->index();
-            $table->string('content');
+            $table->string('content', 1000);
             $table->timestamps();
             
             $table->foreign('book_id')->references('id')->on('books')->onDelete('cascade');

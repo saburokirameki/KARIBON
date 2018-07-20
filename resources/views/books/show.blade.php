@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="row">
         <div class="col-md-3 col-sm-6 col-xs-12 col-md-offset-3">
             <div class="book">
                 <div class="panel panel-default">
@@ -49,11 +48,11 @@
             <p class="text-center"><a href="{{ $book->url }}" target="_blank">楽天ブックス詳細ページへ</a></p>
         </div>
         <div class="col-md-offset-2 col-md-8">
-        <div class="form-group">
+        <div class="form-group ">
               {!! Form::open(['route' => 'microposts.store', 'method' => 'post']) !!}
               {{Form::hidden('book_id', $book->id)}}
               {{Form::hidden('user_id', $user->id)}}
-              {!! Form::textarea('content', old('content'), ['class' => 'form-control', 'rows' => '2']) !!}
+              {!! Form::textarea('content', old('content'), ['class' => 'form-control', 'rows' => '2', 'placeholder'=>'最大１０００文字']) !!}
               {!! Form::submit('この本に対するコメントを投稿', ['class' => 'btn btn-success btn-block']) !!}
               {!! Form::close() !!}
             </div>
@@ -77,7 +76,5 @@
             {!! $microposts->render() !!}
             </div>
             
-    </div>
-    
 @endsection
 

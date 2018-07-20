@@ -50,7 +50,6 @@
         $book = Book::find($id);
         $have_users = $book->users;
         $microposts = $book->microposts()->orderBy('created_at', 'desc')->paginate(10);
-        
 
       return view('books.show', [
           'book' => $book,
