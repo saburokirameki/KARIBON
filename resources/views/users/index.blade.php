@@ -7,6 +7,7 @@
                 <tr>
                     <th>Nickname</th>
                     <th>Home Team</th>
+                    <th>貸出冊数</th>
                 </tr>
             </thead>
             <tbody>
@@ -14,6 +15,7 @@
                  <tr>
                      <td><a href="{{ route('users.show', $user->id) }}">{{ $user->name }}</a></td>
                      <td>{{ $user->home }}</td>
+                     <td>{{ $user->books()->count() }}</td>
                 </tr>
                 @endforeach
             </tbody>
@@ -21,4 +23,3 @@
         
     </div>
 @endsection
-

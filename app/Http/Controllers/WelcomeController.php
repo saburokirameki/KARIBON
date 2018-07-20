@@ -28,7 +28,7 @@ class WelcomeController extends Controller
         if(!empty($search)) {
             $query->where('name', 'like', '%'.$search.'%');
         }
-        $data = $query->paginate(300);
+        $data = $query->orderBy('updated_at', 'desc')->paginate(300);
         
         return view('welcome', [
             'books' => $books,
