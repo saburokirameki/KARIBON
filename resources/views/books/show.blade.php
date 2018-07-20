@@ -46,21 +46,38 @@
                     </div>
                 </div>
             </div>
-            
-            
-                  {!! Form::open(['route' => 'users.store']) !!}
-                      <div class="form-group">
-                          {!! Form::textarea('content', old('content'), ['class' => 'form-control', 'rows' => '2']) !!}
-                          {!! Form::submit('Post', ['class' => 'btn btn-primary btn-block']) !!}
-                      </div>
-                  {!! Form::close() !!}
-                  
-                  
-           
-            
-            
             <p class="text-center"><a href="{{ $book->url }}" target="_blank">楽天ブックス詳細ページへ</a></p>
         </div>
+        <div class="col-md-offset-2 col-md-8">
+        <div class="form-group">
+              {!! Form::open(['route' => 'microposts.store', 'method' => 'post']) !!}
+              {{Form::hidden('book_id', $book->id)}}
+              {{Form::hidden('user_id', $user->id)}}
+              {!! Form::textarea('content', old('content'), ['class' => 'form-control', 'rows' => '2']) !!}
+              {!! Form::submit('この本に対するコメントを投稿', ['class' => 'btn btn-success btn-block']) !!}
+              {!! Form::close() !!}
+            </div>
+            @if (count($microposts) > 0)
+                <ul class="media-list">
+                    @foreach ($microposts as $micropost)
+                        <?php $user = $micropost->user; ?>
+                        <li class="media">
+                            <div class="media-body">
+                                <div>
+                                    {!! link_to_route('users.show', $user->name, ['id' => $user->id]) !!} <span class="text-muted">posted at {{ $micropost->created_at }}</span>
+                                </div>
+                                <div>
+                                    <p>{!! nl2br(e($micropost->content)) !!}</p>
+                                </div>
+                            </div>
+                        </li>
+                    @endforeach
+                </ul>
+            @endif
+            {!! $microposts->render() !!}
+            </div>
+            
     </div>
+    
 @endsection
 

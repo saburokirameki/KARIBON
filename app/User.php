@@ -27,6 +27,11 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
     
+     public function microposts()
+    {
+        return $this->hasMany(Micropost::class);
+    }
+    
     public function books()
     {
         return $this->belongsToMany(Book::class)->withTimestamps();
@@ -74,9 +79,5 @@ class User extends Authenticatable
 
     }
     
-    public function microposts()
-    {
-        return $this->hasMany(Micropost::class);
-    }
     
 }

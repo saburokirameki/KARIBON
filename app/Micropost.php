@@ -6,15 +6,18 @@ use Illuminate\Database\Eloquent\Model;
 
 class Micropost extends Model
 {
-   protected $fillable = ['content', 'user_id','book_id'];
+   protected $fillable = ['content','book_id', 'user_id'];
 
-    public function user()
+   
+    
+     public function book()
+    {
+        return $this->belongsTo(Book::class)->withPivot('content');
+    }
+    
+     public function user()
     {
         return $this->belongsTo(User::class);
     }
     
-     public function book()
-    {
-        return $this->belongsTo(Book::class);
-    }
 }

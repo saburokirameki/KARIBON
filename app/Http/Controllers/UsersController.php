@@ -20,7 +20,7 @@ class UsersController extends Controller
         $user = User::find($id);
         $count_have = $user->books()->count();
         $books = \DB::table('books')->join('book_user', 'books.id', '=', 'book_user.book_id')->select('books.*')->where('book_user.user_id', $user->id)->distinct()->paginate(20);
-
+        
         return view('users.show', [
             'user' => $user,
             'books' => $books,
@@ -37,18 +37,7 @@ class UsersController extends Controller
         ]);
     }
     
-    public function store(Request $request)
-    {
-        $this->validate($request, [
-            'content' => 'required|max:191',
-        ]);
-
-        $request->user()->microposts()->create([
-            'content' => $request->content,
-        ]);
-
-        return redirect()->back();
-    }
+    
     
     
     public function taikai()

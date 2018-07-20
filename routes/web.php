@@ -34,8 +34,10 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('books/{id}/goodluck', 'BooksController@goodluck')->name('books.goodluck');
     Route::post('have', 'BookUserController@have')->name('book_user.have');
     Route::delete('have', 'BookUserController@dont_have')->name('book_user.dont_have');
-    Route::resource('users', 'UsersController', ['only' => ['show','index','destroy','store']]);
+    Route::resource('users', 'UsersController', ['only' => ['show','index','destroy']]);
     Route::get('taikai', 'UsersController@taikai')->name('users.taikai');
+    
+    Route::resource('microposts', 'MicropostsController', ['only' => ['store']]);
 });
 
 

@@ -5,6 +5,7 @@
 
     use App\Http\Controllers\Controller;
     use \App\Book;
+    use \App\Micropost;
 
   class BooksController extends Controller
   {
@@ -44,13 +45,17 @@
     }
     
      public function show($id)
-    {
-      $book = Book::find($id);
-      $have_users = $book->users;
+    { 
+        
+        $book = Book::find($id);
+        $have_users = $book->users;
+        $microposts = $book->microposts()->orderBy('created_at', 'desc')->paginate(10);
+        
 
       return view('books.show', [
           'book' => $book,
           'have_users' => $have_users,
+          'microposts' => $microposts,
       ]);
     }
     
@@ -191,4 +196,6 @@
             'books' => $books,
         ]);
     }
+    
+   
   }
