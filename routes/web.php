@@ -38,6 +38,11 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('taikai', 'UsersController@taikai')->name('users.taikai');
     
     Route::resource('microposts', 'MicropostsController', ['only' => ['store']]);
+    
+    Route::post('notice', 'UserNoticeController@store')->name('user.notice');
+    Route::delete('dont_notice', 'UserNoticeController@destroy')->name('user.dont_notice');
+    Route::get('notice_user', 'UsersController@notice_user')->name('users.notice_user');
+    Route::get('noticed_user', 'UsersController@noticed_user')->name('users.noticed_user');
 });
 
 

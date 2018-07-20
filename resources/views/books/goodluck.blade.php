@@ -12,6 +12,7 @@
                 <tr> 
                     <th class="text-center">Nickname</th>
                     <th class="text-center">Home Team</th>
+                    <th class="text-center"></th>
                 </tr>
             </thead>
             <tbody>
@@ -19,6 +20,7 @@
                  <tr class="warning text-center">
                      <td><a href="{{ route('users.show', $user->id) }}">{{ $user->name }}</a></td>
                      <td>{{ $user->home }}</td>
+                     <td>@include('books.notice_button', ['user' => $user])</td>
                 </tr>
                 @endforeach
             </tbody>
