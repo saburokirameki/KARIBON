@@ -15,15 +15,15 @@
                     <th class="text-center"></th>
                 </tr>
             </thead>
-            <tbody>
-                @foreach ($have_users as $user)
-                 <tr class="warning text-center">
-                     <td><a href="{{ route('users.show', $user->id) }}">{{ $user->name }}</a></td>
-                     <td>{{ $user->home }}</td>
-                     <td>@include('books.notice_button', ['user' => $user])</td>
-                </tr>
-                @endforeach
-            </tbody>
+                <tbody>
+                    @foreach ($have_users as $user)
+                        <tr class="warning text-center">
+                            <td><a href="{{ route('users.show', $user->id) }}">{{ $user->name }}</a></td>
+                            <td>{{ $user->home }}</td>
+                            <td>@include('books.notice_button', ['user' => $user])</td>
+                        </tr>
+                    @endforeach
+                </tbody>
         </table>
         <div class='text-center'> 
         <h2>借りに行こう！Good Luck!</h2>

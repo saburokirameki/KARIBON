@@ -3,23 +3,21 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\User;
 
 class UserNoticeController extends Controller
 {
-    public function store(Request $request)
+    public function store(Request $request, $id)
     {
-        \Auth::user()->notice_user()->create([
-            'book_id' => $request->book_id,
-        ]);
-        
-        \Auth::user()->notice($request->notice_id);
-        
+        $book_id = $request->book_id;
+        \Auth::user()->notice($id, $book_id);
         return redirect()->back();
     }
 
-    public function destroy($id)
+    public function destroy(Request $reqest, $id)
     {
-        \Auth::user()->dont_notice($id);
+        $book_id = $reqest->book_id;
+        \Auth::user()->dont_notice($id, $book_id);
         return redirect()->back();
     }
 }

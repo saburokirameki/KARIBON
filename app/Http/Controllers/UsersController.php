@@ -28,6 +28,20 @@ class UsersController extends Controller
         ]);
     }
     
+    public function ranking()
+    {
+        $users = \DB::table('book_user')
+        ->join('users', 'book_user.user_id', '=', 'users.id')
+        ->select('users.id','users.name','users.home', \DB::raw('COUNT(book_user.user_id) as count'))
+        ->groupBy('users.id','users.name','users.home')
+        ->orderBy('count', 'DESC')
+        ->get();
+        
+        return view('users.ranking', [
+            'users' => $users,
+        ]);
+    }
+    
     public function index()
     {
         $users = User::OrderBy('name')->get();
@@ -37,8 +51,14 @@ class UsersController extends Controller
         ]);
     }
     
-    
-    
+    public function home()
+    {
+        $users = User::OrderBy('home')->get();
+
+        return view('users.home', [
+            'users' => $users,
+        ]);
+    }
     
     public function taikai()
     {

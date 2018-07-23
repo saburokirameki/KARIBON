@@ -91,34 +91,33 @@ class User extends Authenticatable
     }
     
     // 借りたいよ通知を送る瞬間（借りたい人が緑ボタンを押す瞬間）
-    public function notice($userId)
+    public function notice($userId , $bookId)
     {
         // confirm if already following
-        $exist = $this->is_noticing($userId);
+        $exist = $this->is_noticing($userId, $bookId);
         // confirming that it is not you
-        $its_me = $this->id == $userId;
     
-        if ($exist || $its_me) {
+        if ($exist) {
             // do nothing if already following
             return false;
         } else {
             // follow if not following
-            $this->notice_user()->attach($userId);
+            $this->notice_user()->attach($userId, ['book_id'=>$bookId]);
+            
             return true;
         }
     }
     // 借りたい通知を取り消す瞬間（借りたい人がやっぱりやめるボタンを押す瞬間）
-    public function dont_notice($userId)
+    public function dont_notice($userId, $bookId)
     {
         // confirming if already following
-        $exist = $this->is_noticing($userId);
+        $exist = $this->is_noticing($userId, $bookId);
         // confirming that it is not you
-        $its_me = $this->id == $userId;
     
     
-        if ($exist && !$its_me) {
+        if ($exist) {
             // stop following if following
-            $this->notice_user()->detach($userId);
+           \DB::delete("DELETE FROM notice WHERE user_id = ? AND notice_id = ? AND book_id = ?", [$this->id, $userId, $bookId]);
             return true;
         } else {
             // do nothing if not following
@@ -127,8 +126,8 @@ class User extends Authenticatable
     }
     
     // 借りたいよ通知を送った状態（借りたい人が緑ボタンを押した状態）
-    public function is_noticing($userId) {
-        return $this->notice_user()->where('notice_id', $userId)->exists();
+    public function is_noticing($userId, $bookId) {
+        return $this->notice_user()->where('notice_id', $userId)->where('book_id', $bookId)->exists();
     }
     // 借りたいよ通知を受け取った状態（貸す側が通知を見ている状態）
     public function is_noticed($userId) {
