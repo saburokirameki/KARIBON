@@ -37,6 +37,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('users', 'UsersController', ['only' => ['show','index','destroy']]);
     Route::get('taikai', 'UsersController@taikai')->name('users.taikai');
     
+    Route::get('news', 'UsersController@news')->name('users.news');
+    
     Route::get('home', 'UsersController@home')->name('users.home');
     Route::get('ranking', 'UsersController@ranking')->name('users.ranking');
     

@@ -39,6 +39,9 @@
                                 </li>
                             </ul>
                         </li>
+                        <li>
+                       <a href="{{ route('users.news') }}"><span class="badge glyphicon glyphicon-bell">{{  Auth::user()->noticed_user()->count() }}</span></a> 
+                        </li>
                     @else
                         <li><a href="{{ route('signup.get') }}">新規登録</a></li>
                         <li><a href="{{ route('login') }}">ログイン</a></li>

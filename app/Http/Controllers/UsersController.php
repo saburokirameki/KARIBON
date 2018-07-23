@@ -67,6 +67,16 @@ class UsersController extends Controller
         return view('users.taikai',['user'=> $user]);
     }
     
+    public function news()
+    {
+        $users = \Auth::user()->noticed_user();  
+        $book_id = $users->book_id;
+        $book = Book::find($book_id);
+       
+       
+        return view('users.news',['users'=> $users , 'book'=>$book]);
+    }
+    
     public function destroy($id)
     {
         $user = User::find($id);    
