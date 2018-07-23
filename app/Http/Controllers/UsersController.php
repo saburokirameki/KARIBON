@@ -69,12 +69,25 @@ class UsersController extends Controller
     
     public function news()
     {
-        $users = \Auth::user()->noticed_user();  
-        $book_id = $users->book_id;
-        $book = Book::find($book_id);
-       
-       
-        return view('users.news',['users'=> $users , 'book'=>$book]);
+         $users = \DB::table('users')
+        ->join('notice', 'users.id', '=', 'notice.user_id')
+        ->select('users.name','users.home')
+        ->where('notice.notice_id', \Auth::id())
+        ->groupBy('users.name','users.home')
+        ->get();
+        
+        $book_id = \DB::table('notice')->select('notice.*')->where('notice.notice_id', \Auth::id())->get();
+        
+      
+        $books = \DB::table('books')
+        ->join('notice', 'books.id', '=', 'notice.book_id')
+        ->select('books.name')
+        ->groupBy('books.name')
+        ->get();
+        
+        
+        
+        return view('users.notice',['users'=> $users , 'books'=>$books]);
     }
     
     public function destroy($id)
