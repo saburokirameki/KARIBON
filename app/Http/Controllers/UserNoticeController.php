@@ -11,7 +11,10 @@ class UserNoticeController extends Controller
     {
         $book_id = $request->book_id;
         \Auth::user()->notice($id, $book_id);
-        return redirect()->back();
+        
+        $user = User::find($id);
+        
+        return view('books.finalgoodluck', ['user'=>$user]);
     }
 
     public function destroy(Request $reqest, $id)

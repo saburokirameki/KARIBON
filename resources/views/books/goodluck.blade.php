@@ -25,9 +25,6 @@
                     @endforeach
                 </tbody>
         </table>
-        <div class='text-center'> 
-        <h2>借りに行こう！Good Luck!</h2>
-        </div>
     </div>
     </div>
 @endsection
