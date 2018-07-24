@@ -329,6 +329,7 @@ position: absolute;
   position:absolute;
   top:-2px;
   transform:skew(-15deg);
+  font-size: 20px;
 }
 
 .bottom-right {
@@ -336,12 +337,14 @@ position: absolute;
   position:absolute;
   right:-6px;
   transform:skew(-15deg);
+  font-size: 20px;
 }
 .top-right {
   top:-2px;
   position:absolute;
   right:-6px;
   transform:skew(-15deg);
+  font-size: 20px;
 }
 
 .speech {
@@ -351,7 +354,10 @@ position: absolute;
   display:inline-block;
   margin:.5em;
   padding:.5em 1em;
-  position:relative;
+  position:absolute;
+  left:-10px;
+  top:-5px;
+  font-size: 20px;
 }
 
 .speech-right {
@@ -362,7 +368,8 @@ position: absolute;
   margin:.5em;
   padding:.5em 1em;
   position:absolute;
-  right:50px;
+  right:10px;
+  font-size: 20px;
 }
 
 .speech:before {
@@ -470,12 +477,12 @@ position: absolute;
 .comic .panel .hero-all img{
   position:absolute;
   bottom:-6px;
-  left:0px;
+  left:40px;
 }
 .comic .panel .hero-all2 img{
   position:absolute;
   bottom:-6px;
-  left:200px;
+  left:240px;
 }
 
 

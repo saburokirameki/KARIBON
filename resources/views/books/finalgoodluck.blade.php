@@ -2,9 +2,9 @@
 
 @section('content')
 <a class="toppage" href="/">Top Pageに戻る</a>
-    <h1>{{ $user->name }}さんに通知が送られました。</h1>
+    <h1 class="kariru-search">{{ $user->name }}さんに通知が送られました。</h1>
     <br/>
-    <h2>今後の流れ</h2>
+    <h1 class="text-center">今後の流れ</h1>
     <article class="comic">
   <div class="panel">
     <p class="text top-left">Step 1</p>
@@ -42,15 +42,15 @@
     </div>
   </div>
   <div class="panel">
-    <p class="text top-right">Step 6</p>
-    <h2>Karibonで<br/>本の感想を共有しよう</h2>
+    <p class="text bottom-right">Step 6</p>
+    <h2>KARIBONで<br/>本の感想を共有しよう</h2>
     <div class="hero5" >
     <img src="/images/hero5.png" alt="hero">
     </div>
   </div>
   <div class="panel">
     <h2>借りに行こう！Good Luck!</h2>
-    <p class="text bottom-right">THE END</p>
+    <p class="text top-right">THE END</p>
     <div class="hero-all" >
     <img src="/images/hero-all.png" alt="hero">
     </div>
