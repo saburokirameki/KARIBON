@@ -44,7 +44,14 @@
                                     <div class="panel-body">
                                         @if ($book->id)
                                             <p class="book-title"><a href="{{ route('books.show', $book->id) }}">{{ $book->name }}</a></p>
-                                            <a href='{{ route('books.goodluck', $book->id) }}' class="cp_btn">借りる</a>
+                                           @if (Auth::check())
+                                                @if (Auth::user()->is_having($book->id))
+                                                @else
+                                                <a href='{{ route('books.goodluck', $book->id) }}' class="cp_btn">借りる</a>
+                                                @endif
+                                            @else
+                                                <a href='{{ route('books.goodluck', $book->id) }}' class="cp_btn">借りる</a>
+                                            @endif
                                         @else
                                             <p class="book-title">{{ $book->name }}</p>
                                         @endif

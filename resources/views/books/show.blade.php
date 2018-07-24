@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+<a class="toppage" href="/">Top Pageに戻る</a>
         <div class="col-md-3 col-sm-6 col-xs-12 col-md-offset-3">
             <div class="book">
                 <div class="panel panel-default">

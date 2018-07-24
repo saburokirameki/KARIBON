@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+<a class="toppage" href="/">Top Pageに戻る</a>
     <h1>{{ $user->name }}さんに通知が送られました。</h1>
     <br/>
     <h2>今後の流れ</h2>

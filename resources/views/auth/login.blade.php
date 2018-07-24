@@ -18,13 +18,13 @@
                         </div>
     
                         <div class="text-center">
-                            {!! form::submit('Log in', ['class' => 'btn btn-success btn-block']) !!}
+                            {!! form::submit('Log in', ['class' => 'btn btn-login btn-success btn-block']) !!}
                         </div>
                     {!! form::close() !!}
                 </div>
             </div>
             @if (!Auth::check())
-                <a href="{{ route('signup.get') }}" class="btn btn-hajimeru btn-md">KARIBONに新規登録</a>
+                <a href="{{ route('signup.get') }}" class="btn btn-hajimeru btn-md">新規登録</a>
             @endif
         </div>
     </div>

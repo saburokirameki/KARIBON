@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+<a class="toppage" href="/">Top Pageに戻る</a>
     <div class="goodluck">
     <div class="panel-heading text-center">
         <img src="{{ $book->image_url }}" alt="" class="">

@@ -44,7 +44,14 @@
                                     <div class="panel-body">
                                         @if ($book->id)
                                             <p class="book-title"><a href="{{ route('books.show', $book->id) }}">{{ $book->name }}</a></p>
-                                            <a href='{{ route('books.goodluck', $book->id) }}' class="cp_btn">借りる</a>
+                                            @if (Auth::check())
+                                                @if (Auth::user()->is_having($book->id))
+                                                @else
+                                                <a href='{{ route('books.goodluck', $book->id) }}' class="cp_btn">借りる</a>
+                                                @endif
+                                            @else
+                                                <a href='{{ route('books.goodluck', $book->id) }}' class="cp_btn">借りる</a>
+                                            @endif
                                         @else
                                             <p class="book-title">{{ $book->name }}</p>
                                         @endif
@@ -56,34 +63,9 @@
                 @endforeach
                {!! $data->render() !!}
         @else
+            <br/>
+            <br/>
             <div class = "kariru-search text-center">検索ヒット件数：０</div>
-                <div class="row">
-            @foreach ($books as $book)
-                @if ($book->users()->exists())
-                    <div class="book">
-                        <div class="col-md-3 col-sm-4 col-xs-12">
-                            <div class="panel panel-default">
-                                <div class="panel-heading text-center">
-                                    <img src="{{ $book->image_url }}" alt="" class="">
-                                </div>
-                                <div class="panel-body">
-                                    @if ($book->id)
-                                        <p class="book-title"><a href="{{ route('books.show', $book->id) }}">{{ $book->name }}</a></p>
-                                    @else
-                                        <p class="book-title">{{ $book->name }}</p>
-                                    @endif
-                                    <a href='{{ route('books.goodluck', $book->id) }}' class="cp_btn text-center">借りる</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                @endif
-                
-                
-            @endforeach
-            　 {!! $books->render() !!}
-            </div>
-            
         @endif
    
 @endsection

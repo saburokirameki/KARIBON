@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+<a class="toppage" href="/">Top Pageに戻る</a>
     <div class="user-profile">
         <div class="icon text-center">
             <img src="{{ Gravatar::src($user->name, 100) . '&d=mm' }}" alt="" class="img-circle">
