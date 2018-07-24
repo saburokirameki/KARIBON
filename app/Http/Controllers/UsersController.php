@@ -71,23 +71,13 @@ class UsersController extends Controller
     {
          $users = \DB::table('users')
         ->join('notice', 'users.id', '=', 'notice.user_id')
-        ->select('users.name','users.home')
+        ->join('books', 'books.id', '=', 'notice.book_id')
+        ->select('users.name as name','users.home as home','books.name as book_name', 'books.image_url as url')
         ->where('notice.notice_id', \Auth::id())
-        ->groupBy('users.name','users.home')
+        ->groupBy('users.name','users.home', 'books.name', 'books.image_url')
         ->get();
         
-        $book_id = \DB::table('notice')->select('notice.*')->where('notice.notice_id', \Auth::id())->get();
-        
-      
-        $books = \DB::table('books')
-        ->join('notice', 'books.id', '=', 'notice.book_id')
-        ->select('books.name')
-        ->groupBy('books.name')
-        ->get();
-        
-        
-        
-        return view('users.notice',['users'=> $users , 'books'=>$books]);
+        return view('users.notice',['users'=> $users]);
     }
     
     public function destroy($id)

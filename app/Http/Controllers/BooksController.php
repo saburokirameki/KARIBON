@@ -22,6 +22,7 @@
                 'keyword' => $keyword,
                 'imageFlag' => 1,
                 'hits' => 30,
+                'page' => 1,
             ]);
 
             // Creating "Book" instance to make it easy to handle.（not saving）
@@ -36,8 +37,6 @@
             }
         }
         
-        
-
         return view('books.create', [
             'keyword' => $keyword,
             'books' => $books,
