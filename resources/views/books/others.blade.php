@@ -44,7 +44,6 @@
                                     <div class="panel-body">
                                         @if ($book->id)
                                             <p class="book-title"><a href="{{ route('books.show', $book->id) }}">{{ $book->name }}</a></p>
-                                           @if (Auth::user()->is_having($book->id))
                                             @if (Auth::check())
                                                 @if (Auth::user()->is_having($book->id))
                                                 @else
