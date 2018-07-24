@@ -38,6 +38,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('taikai', 'UsersController@taikai')->name('users.taikai');
     
     Route::get('news', 'UsersController@news')->name('users.news');
+    Route::delete('confirm', 'UsersController@confirm')->name('users.confirm');
     
     Route::get('home', 'UsersController@home')->name('users.home');
     Route::get('ranking', 'UsersController@ranking')->name('users.ranking');

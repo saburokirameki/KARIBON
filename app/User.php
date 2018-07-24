@@ -124,7 +124,11 @@ class User extends Authenticatable
             return false;
         }
     }
-    
+    public function dont_noticed($noticeId)
+    {
+           \DB::delete("DELETE FROM notice WHERE id = ?", [$noticeId]);
+            return true;
+    }
     // 借りたいよ通知を送った状態（借りたい人が緑ボタンを押した状態）
     public function is_noticing($userId, $bookId) {
         return $this->notice_user()->where('notice_id', $userId)->where('book_id', $bookId)->exists();

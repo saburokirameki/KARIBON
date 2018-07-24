@@ -15,6 +15,14 @@
             <div class="alert alert-warning text-center" role="alert">
                 <h2>{{$user->name}}({{$user->home}})さんが<br/>『{{$user->book_name}}』を<br/>借りたいと言っています！</h2>
                 </div>
+            <div class='btn-group'>
+            @if (Auth::user()->id == $user->notice_id)
+            {!! Form::open(['route' => ['users.confirm'], 'method' => 'delete']) !!}
+                {!! Form::submit('通知を確認', ['class' =>'btn btn-danger btn-xs']) !!}
+                {{Form::hidden('notice_id', $user->id)}}
+            {!! Form::close() !!}
+        @endif
+        </div>
             </div>
     @endforeach
 @endsection

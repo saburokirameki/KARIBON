@@ -72,12 +72,19 @@ class UsersController extends Controller
          $users = \DB::table('users')
         ->join('notice', 'users.id', '=', 'notice.user_id')
         ->join('books', 'books.id', '=', 'notice.book_id')
-        ->select('users.name as name','users.home as home','books.name as book_name', 'books.image_url as url')
+        ->select('users.name as name','users.home as home','books.name as book_name', 'books.image_url as url', 'notice.notice_id as notice_id', 'notice.id as id')
         ->where('notice.notice_id', \Auth::id())
-        ->groupBy('users.name','users.home', 'books.name', 'books.image_url')
+        ->groupBy('users.name','users.home', 'books.name', 'books.image_url', 'notice.notice_id', 'notice.id')
         ->get();
         
         return view('users.notice',['users'=> $users]);
+    }
+    
+     public function confirm(Request $request)
+    {   
+        $id=$request->notice_id;
+            \Auth::user()->dont_noticed($id);
+        return redirect()->back();
     }
     
     public function destroy($id) //taikai 
