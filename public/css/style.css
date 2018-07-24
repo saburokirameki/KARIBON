@@ -409,6 +409,47 @@ position: absolute;
 .comic .panel:nth-child(7) {
   flex-basis: 400px;
 }
+.comic .panel .hero1 img{
+  position:absolute;
+  top:0px;
+  right:0px;
+}
+.comic .panel .hero2 img{
+  position:absolute;
+  bottom:0px;
+  right:0px;
+}
+.comic .panel .hero3 img{
+  position:absolute;
+  bottom:0px;
+  right:0px;
+}
+.comic .panel .hero4 img{
+  position:absolute;
+  bottom:0px;
+  right:0px;
+}
+.comic .panel .hero5 img{
+  position:absolute;
+  top:0px;
+  left:100px;
+}
+.comic .panel .hero6 img{
+  position:absolute;
+  top:0px;
+  left:85px;
+}
+.comic .panel .hero-all img{
+  position:absolute;
+  bottom:-6px;
+  left:0px;
+}
+.comic .panel .hero-all2 img{
+  position:absolute;
+  bottom:-6px;
+  left:200px;
+}
+
 
 
 /* background colours */
