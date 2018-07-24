@@ -8,6 +8,12 @@
         <div class="name text-center">
             <h1>{{ $user->name }}</h1>
         </div>
+        <div class="text-center">
+            <h3>{{ $user->profile }}</h3>
+            @if(Auth::id()==$user->id)
+            {!! link_to_route('users.edit', 'プロフィールを編集', ['id' => $user->id]) !!}
+            @endif
+        </div>
         @if(Auth::id()==$user->id)
             <div class="tuika-button text-center">
                     <a href="{{ route('books.create') }}">
@@ -23,5 +29,8 @@
    @include('books.books')
     {!! $books->render() !!}
     
+    @if(Auth::id()==$user->id)
     <p class='text-right'>{!! link_to_route('users.taikai', '退会') !!}</p>
+    @endif
+    
 @endsection

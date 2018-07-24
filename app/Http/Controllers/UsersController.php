@@ -80,13 +80,38 @@ class UsersController extends Controller
         return view('users.notice',['users'=> $users]);
     }
     
-    public function destroy($id)
+    public function destroy($id) //taikai 
     {
         $user = User::find($id);    
        
          $user->delete();
        
         return redirect()->back();
+    }
+    
+    public function edit($id)
+    {
+        $user = User::find($id);
+
+        return view('users.edit', [
+            'user' => $user,
+        ]);
+    }
+    
+    public function update(Request $request, $id)
+    {
+        $user = User::find($id); 
+        $user->profile = $request->profile;
+        $user->save();
+        
+        $count_have = $user->books()->count();
+        $books = \DB::table('books')->join('book_user', 'books.id', '=', 'book_user.book_id')->select('books.*')->where('book_user.user_id', $user->id)->distinct()->paginate(20);
+        
+        return view('users.show', [
+            'user' => $user,
+            'books' => $books,
+            'count_have' => $count_have,
+        ]);
     }
    
 }

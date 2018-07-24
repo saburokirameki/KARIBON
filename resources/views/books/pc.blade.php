@@ -6,10 +6,10 @@
             <div class="cover-contents">
                 <h1>みんなで作る図書館</h1>
                 
-                    <!--<form id="form1" action="/">-->
-                    <!--<input id="sbox" name="s" type="text" placeholder="キーワードを入力" />-->
-                    <!--<input id="sbtn" type="submit" value="借りられる本を検索" />-->
-                    <!--</form>-->
+                    <form id="form1" action="/">
+                    <input id="sbox" name="s" type="text" placeholder="キーワードを入力" />
+                    <input id="sbtn" type="submit" value="借りられる本を検索" />
+                    </form>
                     
             </div>
         </div>

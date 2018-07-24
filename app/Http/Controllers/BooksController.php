@@ -20,9 +20,9 @@
 
             $rws_response = $client->execute('BooksTotalSearch', [
                 'keyword' => $keyword,
-                'imageFlag' => 1,
                 'hits' => 30,
                 'page' => 1,
+                'field' => 0, //field指定で検索範囲を拡大、最高！！！
             ]);
 
             // Creating "Book" instance to make it easy to handle.（not saving）

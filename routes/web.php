@@ -42,6 +42,10 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('home', 'UsersController@home')->name('users.home');
     Route::get('ranking', 'UsersController@ranking')->name('users.ranking');
     
+    Route::put('users/{id}', 'UsersController@update')->name('users.update');
+    Route::get('users/{id}/edit', 'UsersController@edit')->name('users.edit');
+    
+    
     Route::resource('microposts', 'MicropostsController', ['only' => ['store']]);
     
     Route::group(['prefix' => 'goodluck/{id}'], function () {
