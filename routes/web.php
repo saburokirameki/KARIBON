@@ -46,7 +46,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('users/{id}/edit', 'UsersController@edit')->name('users.edit');
     
     
-    Route::resource('microposts', 'MicropostsController', ['only' => ['store']]);
+    Route::resource('microposts', 'MicropostsController', ['only' => ['store', 'destroy']]);
     
     Route::group(['prefix' => 'goodluck/{id}'], function () {
     Route::post('notice', 'UserNoticeController@store')->name('user.notice');

@@ -14,11 +14,11 @@
                 <ul class="nav navbar-nav navbar-right">
                     @if (Auth::check())
                         <li>
-                            <a href="{{ route('books.create') }}">貸す本を追加</a>
+                            <a href="{{ route('books.create') }}"><span class="glyphicon glyphicon-plus"></span>貸す本を追加</a>
                         </li>
                         
                         <li>
-                            <a href="{{ route('users.index') }}">ユーザ一覧</a>
+                            <a href="{{ route('users.index') }}"><span class="glyphicon glyphicon-user"></span>ユーザ一覧</a>
                         </li>
                         
                         <li class="dropdown">
@@ -39,9 +39,11 @@
                                 </li>
                             </ul>
                         </li>
+                        @if(Auth::user()->noticed_user()->count()>0)
                         <li>
                        <a href="{{ route('users.news') }}"><span class="badge glyphicon glyphicon-bell">{{  Auth::user()->noticed_user()->count() }}</span></a> 
                         </li>
+                        @endif
                     @else
                         <li><a href="{{ route('signup.get') }}">新規登録</a></li>
                         <li><a href="{{ route('login') }}">ログイン</a></li>
