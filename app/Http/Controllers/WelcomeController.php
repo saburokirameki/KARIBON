@@ -18,7 +18,7 @@ class WelcomeController extends Controller
      */
     public function index()
     {
-        $books = Book::orderBy('updated_at', 'desc')->paginate(50);
+        $books = Book::orderBy('updated_at', 'desc')->paginate(48);
         
         // 検索するテキスト取得
         $search = Request::get('s');
@@ -28,7 +28,7 @@ class WelcomeController extends Controller
         if(!empty($search)) {
             $query->where('name', 'like', '%'.$search.'%');
         }
-        $data = $query->orderBy('updated_at', 'desc')->paginate(50);
+        $data = $query->orderBy('updated_at', 'desc')->paginate(48);
         
         return view('welcome', [
             'books' => $books,

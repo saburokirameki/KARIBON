@@ -45,12 +45,15 @@
         </div>
         <div class="col-md-8">
             <div class="alert alert-success text-center" role="alert">
-                <h2>{{$user->name}}さんに<br/>『{{$user->book_name}}』の<br/>貸し出し依頼送信済み！</h2>
+                <h3>{{$user->name}}さんに<br/>『{{$user->book_name}}』の<br/>貸し出し依頼送信済み！</h3>
+                <h4><a href="{{ route('books.show', $user->book_id) }}">この本の感想を共有しよう</a></h4>
+                @if(Auth::id() == $user->notice_user_id)
                 {!! Form::open(['route' => ['user.dont_notice', $user->user_id], 'method' => 'delete']) !!}
                     {{ Form::hidden('notice_id', $user->user_id) }}
                     {{ Form::hidden('book_id', $user->book_id) }}
-                    {!! Form::submit('依頼取り消し', ['class' => "btn btn-danger btn-lg"]) !!}
+                    {!! Form::submit('依頼取り消し', ['class' => "btn btn-danger btn-md"]) !!}
                 {!! Form::close() !!}
+                @endif
             </div>
         </div>
     @endforeach

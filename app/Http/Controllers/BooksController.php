@@ -81,7 +81,7 @@
               ->orwhere('name', 'like', '%'.'三木谷'.'%')
               ->orwhere('name', 'like', '%'.'Business-Do'.'%');
         
-        $books = $query->orderBy('updated_at', 'desc')->paginate(300);
+        $books = $query->orderBy('updated_at', 'desc')->paginate(48);
         
         return view('books.rakuten', [
             'books' => $books,
@@ -96,7 +96,7 @@
               ->orwhere('booksgenreid', 'like', '001019008'.'%')
               ->orwhere('booksgenreid', 'like', '001020008'.'%');
         
-        $books = $query->orderBy('updated_at', 'desc')->paginate(300);
+        $books = $query->orderBy('updated_at', 'desc')->paginate(48);
         
         return view('books.business', [
             'books' => $books,
@@ -111,7 +111,7 @@
               ->orwhere('booksgenreid', 'like', '001019005'.'%')
               ->orwhere('booksgenreid', 'like', '001020005'.'%');
         
-        $books = $query->orderBy('updated_at', 'desc')->paginate(300);
+        $books = $query->orderBy('updated_at', 'desc')->paginate(48);
         
         return view('books.lang', [
             'books' => $books,
@@ -126,7 +126,7 @@
               ->orwhere('booksgenreid', 'like', '001019001'.'%')
               ->orwhere('booksgenreid', 'like', '001020001'.'%');
         
-        $books = $query->orderBy('updated_at', 'desc')->paginate(300);
+        $books = $query->orderBy('updated_at', 'desc')->paginate(48);
         
         return view('books.novel', [
             'books' => $books,
@@ -141,7 +141,7 @@
               ->orwhere('booksgenreid', 'like', '001019009'.'%')
               ->orwhere('booksgenreid', 'like', '001020009'.'%');
         
-        $books = $query->orderBy('updated_at', 'desc')->paginate(300);
+        $books = $query->orderBy('updated_at', 'desc')->paginate(48);
         
         return view('books.pc', [
             'books' => $books,
@@ -154,7 +154,7 @@
        
         $query->where('booksgenreid', 'like', '001016'.'%');
         
-        $books = $query->orderBy('updated_at', 'desc')->paginate(300);
+        $books = $query->orderBy('updated_at', 'desc')->paginate(48);
         
         return view('books.shikaku', [
             'books' => $books,
@@ -169,7 +169,7 @@
               ->orwhere('booksgenreid', 'like', '001019007'.'%')
               ->orwhere('booksgenreid', 'like', '001020007'.'%');
         
-        $books = $query->orderBy('updated_at', 'desc')->paginate(300);
+        $books = $query->orderBy('updated_at', 'desc')->paginate(48);
         
         return view('books.society', [
             'books' => $books,
@@ -188,7 +188,7 @@
               ->where('booksgenreid', 'not like', '001008'.'%')
               ->orwherenull('booksgenreid');
         
-        $books = $query->orderBy('updated_at', 'desc')->paginate(300);
+        $books = $query->orderBy('updated_at', 'desc')->paginate(48);
         
         return view('books.others', [
             'books' => $books,
