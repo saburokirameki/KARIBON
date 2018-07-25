@@ -460,23 +460,23 @@ position: absolute;
 }
 .comic .panel .hero1 img{
   position:absolute;
-  top:0px;
-  right:0px;
+  top:3px;
+  right:5px;
 }
 .comic .panel .hero2 img{
   position:absolute;
   bottom:0px;
-  right:0px;
+  right:5px;
 }
 .comic .panel .hero3 img{
   position:absolute;
   bottom:0px;
-  right:0px;
+  right:5px;
 }
 .comic .panel .hero4 img{
   position:absolute;
   bottom:0px;
-  right:0px;
+  right:5px;
 }
 .comic .panel .hero5 img{
   position:absolute;
@@ -485,7 +485,7 @@ position: absolute;
 }
 .comic .panel .hero6 img{
   position:absolute;
-  top:0px;
+  top:3px;
   left:85px;
 }
 .comic .panel .hero-all img{

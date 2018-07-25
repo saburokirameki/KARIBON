@@ -2,6 +2,7 @@
 
 @section('content')
 <a class="toppage" href="/">Top Pageに戻る</a>
+ <h1 class="kariru-search">借りる相手を選択してください。<br/>ボタンを押すと貸し出し依頼が送信されます。</h1>
     <div class="goodluck">
     <div class="panel-heading text-center">
         <img src="{{ $book->image_url }}" alt="" class="">
