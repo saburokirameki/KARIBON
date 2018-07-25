@@ -113,6 +113,10 @@ class UsersController extends Controller
     
     public function update(Request $request, $id)
     {
+        $this->validate($request, [
+            'profile' => 'required|max:400',
+        ]);
+        
         $user = User::find($id); 
         $user->profile = $request->profile;
         $user->save();
