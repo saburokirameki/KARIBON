@@ -18,7 +18,7 @@
 
 @section('content')    
 <a class="toppage" href="{{ route('books.lang') }}">PageTopへ</a>
-    <div class="karireu-list">今すぐ借りられる本一覧</div>
+    <div class="karireu-list">借りられる本一覧</div>
     
    <ul class="nav nav-tabs nav-justified">
     <li role="presentation" class="{{ Request::is('/' ) ? 'active' : '' }}"><a href="/">すべて</a></li>

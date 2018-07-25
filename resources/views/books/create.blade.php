@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+    <a class="toppage" href="/">Top Pageに戻る</a>
     <div class="search">
         <div class="row">
             <div class="text-center">

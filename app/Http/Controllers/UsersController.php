@@ -133,15 +133,15 @@ class UsersController extends Controller
     }
     
     
-    public function borrow($id)
+   public function borrow($id)
     {   
         $user = User::find($id);
         $users = \DB::table('users')
         ->join('notice', 'users.id', '=', 'notice.notice_id')
         ->join('books', 'books.id', '=', 'notice.book_id')
-        ->select('users.name as name','users.home as home','books.name as book_name', 'books.image_url as url', 'notice.notice_id as notice_id', 'notice.id as id')
+        ->select('users.id as user_id', 'users.name as name','users.home as home','notice.book_id as book_id','books.name as book_name', 'books.image_url as url', 'notice.notice_id as notice_id', 'notice.id as id')
         ->where('notice.user_id', $user->id)
-        ->groupBy('users.name','users.home', 'books.name', 'books.image_url', 'notice.notice_id', 'notice.id')
+        ->groupBy('users.id', 'users.name','users.home', 'notice.book_id', 'books.name', 'books.image_url', 'notice.notice_id', 'notice.id')
         ->get();
         
         $data = [
@@ -153,6 +153,7 @@ class UsersController extends Controller
         
         return view('users.borrow',$data);
     }
+        
     
     ///////////////////////
     //Yujiの趣味

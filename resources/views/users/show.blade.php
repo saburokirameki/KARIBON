@@ -32,10 +32,7 @@
             <li role="presentation" class="{{ Request::is('users/*/followings') ? 'active' : '' }}"><a href="{{ route('users.followings', ['id' => $user->id]) }}">フォロー <span class="badge">{{ $count_followings }}</span></a></li>
             <li role="presentation" class="{{ Request::is('users/*/followers') ? 'active' : '' }}"><a href="{{ route('users.followers', ['id' => $user->id]) }}">フォロワー <span class="badge">{{ $count_followers }}</span></a></li>
         </ul>
-        <br>
-        <div class="status text-center">
-                    <div class="status-label"　id="have_count">貸せる本{{ $count_have }}冊</div>
-        </div>
+        <br/>
     </div>
    @include('books.books')
     {!! $books->render() !!}

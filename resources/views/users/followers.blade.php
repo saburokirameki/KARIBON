@@ -52,8 +52,5 @@
             </tbody>
         </table>
     @endif
-    @if(Auth::id()==$user->id)
-    <div class='text-right'>{!! link_to_route('users.taikai', '退会') !!}</div>
-    @endif
     
 @endsection

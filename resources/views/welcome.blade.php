@@ -19,7 +19,7 @@
 @section('content') 
 <a class="toppage" href="/">PageTopへ</a>
 <div class="content">
-    <div class="karireu-list">今すぐ借りられる本一覧</div>
+    <div class="karireu-list">借りられる本一覧</div>
     
     <ul class="nav nav-tabs nav-justified">
     <li role="presentation" class="{{ Request::is('/' ) ? 'active' : '' }}"><a href="/">すべて</a></li>
@@ -64,12 +64,14 @@
                         </div>
                     @endif
                 @endforeach
-               {!! $data->render() !!}
+                 <div class='paginate'>{!! $data->render() !!}</div>
         @else
             <br/>
             <br/>
             <div class = "kariru-search text-center">検索ヒット件数：０</div>
         @endif
+        
+       
    </div>
 @endsection
     
