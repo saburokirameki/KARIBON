@@ -21,7 +21,7 @@
                         <tr class="warning text-center">
                             <td><a href="{{ route('users.show', $user->id) }}">{{ $user->name }}</a></td>
                             <td>{{ $user->home }}</td>
-                            <td>@include('books.notice_button', ['user' => $user])</td>
+                            <td>@include('books.notice_button', ['user' => $user, 'book' => $book])</td>
                         </tr>
                     @endforeach
                 </tbody>

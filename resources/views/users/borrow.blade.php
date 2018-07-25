@@ -30,16 +30,22 @@
             <li role="presentation" class="{{ Request::is('users/*/followings') ? 'active' : '' }}"><a href="{{ route('users.followings', ['id' => $user->id]) }}">フォロー <span class="badge">{{ $count_followings }}</span></a></li>
             <li role="presentation" class="{{ Request::is('users/*/followers') ? 'active' : '' }}"><a href="{{ route('users.followers', ['id' => $user->id]) }}">フォロワー <span class="badge">{{ $count_followers }}</span></a></li>
         </ul>
-        <br>
-        <div class="status text-center">
-                    <div class="status-label"　id="have_count">貸せる本{{ $count_have }}冊</div>
-        </div>
     </div>
-   @include('books.books')
-    {!! $books->render() !!}
-    
-    @if(Auth::id()==$user->id)
-    <p class='text-right'>{!! link_to_route('users.taikai', '退会') !!}</p>
-    @endif
+   @foreach ($users as $user)
+        <div class="alert">
+            <div class="col-md-3">
+                <div class="panel panel-default">
+                    <div class="panel-heading text-center">
+                        <img src="{{ $user->url }}" alt="" class="">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-8">
+            <div class="alert alert-warning text-center" role="alert">
+                <h2>{{$user->name}}さんに<br/>『{{$user->book_name}}』の<br/>借し出し依頼送信済み！</h2>
+            </div>
+        </div>
+    @endforeach
     
 @endsection

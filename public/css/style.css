@@ -20,6 +20,11 @@ footer {
     height: 40px;
 }
 
+.navbar .badge {
+  background-color: #dc143c;
+  font-size: 20px;
+}
+
 /* cover */
 .cover {
     margin-top: -20px;

@@ -14,7 +14,7 @@ class UserNoticeController extends Controller
         
         $user = User::find($id);
         
-        return view('books.finalgoodluck', ['user'=>$user]);
+        return view('books.finalgoodluck', ['user'=>$user, 'book_id'=>$book_id]);
     }
 
     public function destroy(Request $reqest, $id)

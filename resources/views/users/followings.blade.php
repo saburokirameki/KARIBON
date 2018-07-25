@@ -30,16 +30,28 @@
             <li role="presentation" class="{{ Request::is('users/*/followings') ? 'active' : '' }}"><a href="{{ route('users.followings', ['id' => $user->id]) }}">フォロー <span class="badge">{{ $count_followings }}</span></a></li>
             <li role="presentation" class="{{ Request::is('users/*/followers') ? 'active' : '' }}"><a href="{{ route('users.followers', ['id' => $user->id]) }}">フォロワー <span class="badge">{{ $count_followers }}</span></a></li>
         </ul>
-        <br>
-        <div class="status text-center">
-                    <div class="status-label"　id="have_count">貸せる本{{ $count_have }}冊</div>
-        </div>
     </div>
-   @include('books.books')
-    {!! $books->render() !!}
-    
+    <br>
+    @if (count($users) > 0)
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th class="text-center">Nickname</th>
+                    <th class="text-center">Home Teame</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach ($users as $user)
+                 <tr>
+                    <td class="text-center"><a href="{{ route('users.show', $user->id) }}">{{ $user->name }}</a></td>
+                    <td class="text-center">{{ $user->home }}</td>
+                </tr>
+                @endforeach
+            </tbody>
+        </table>
+    @endif
     @if(Auth::id()==$user->id)
-    <p class='text-right'>{!! link_to_route('users.taikai', '退会') !!}</p>
+    <div class='text-right'>{!! link_to_route('users.taikai', '退会') !!}</div>
     @endif
     
 @endsection

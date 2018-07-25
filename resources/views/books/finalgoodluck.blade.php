@@ -43,7 +43,7 @@
   </div>
   <div class="panel">
     <p class="text top-right">Step 6</p>
-    <h2>Karibonで<br/>本の感想を共有しよう</h2>
+    <h2>KARIBONで<br/><a href="{{ route('books.show', $book_id) }}">本の感想を共有</a>しよう</h2>
     <div class="hero5" >
     <img src="/images/hero5.png" alt="hero">
     </div>

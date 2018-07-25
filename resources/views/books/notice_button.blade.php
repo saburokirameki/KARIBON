@@ -4,6 +4,8 @@
         {{ Form::hidden('book_id', $book->id) }}
         {!! Form::submit('依頼取り消し', ['class' => "btn btn-danger btn-block"]) !!}
     {!! Form::close() !!}
+@elseif ($user->unavailable($user->id, $book->id))
+    {!! '貸し出し中' !!}
 @else
     {!! Form::open(['route' => ['user.notice', $user->id]]) !!}
         {{ Form::hidden('notice_id', $user->id) }}

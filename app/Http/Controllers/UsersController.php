@@ -21,15 +21,21 @@ class UsersController extends Controller
         $count_have = $user->books()->count();
         $books = \DB::table('books')->join('book_user', 'books.id', '=', 'book_user.book_id')->select('books.*')->where('book_user.user_id', $user->id)->distinct()->paginate(20);
         
-        return view('users.show', [
+        
+        $data = [
             'user' => $user,
             'books' => $books,
             'count_have' => $count_have,
-        ]);
+        ];
+
+        $data += $this->counts($user);
+        
+        return view('users.show', $data);
     }
     
     public function ranking()
     {
+        
         $users = \DB::table('book_user')
         ->join('users', 'book_user.user_id', '=', 'users.id')
         ->select('users.id','users.name','users.home', \DB::raw('COUNT(book_user.user_id) as count'))
@@ -119,6 +125,58 @@ class UsersController extends Controller
             'books' => $books,
             'count_have' => $count_have,
         ]);
+    }
+    public function borrow($id)
+    {   
+        $user = User::find($id);
+        $users = \DB::table('users')
+        ->join('notice', 'users.id', '=', 'notice.notice_id')
+        ->join('books', 'books.id', '=', 'notice.book_id')
+        ->select('users.name as name','users.home as home','books.name as book_name', 'books.image_url as url', 'notice.notice_id as notice_id', 'notice.id as id')
+        ->where('notice.user_id', $user->id)
+        ->groupBy('users.name','users.home', 'books.name', 'books.image_url', 'notice.notice_id', 'notice.id')
+        ->get();
+        
+        $data = [
+            'user'=> $user,
+            'users'=> $users,
+        ];
+
+        $data += $this->counts($user);
+        
+        return view('users.borrow',$data);
+    }
+    
+    ///////////////////////
+    //Yujiの趣味
+    public function followings($id)
+    {
+        $user = User::find($id);
+        $followings = $user->followings()->paginate(10);
+
+        $data = [
+            'user' => $user,
+            'users' => $followings,
+        ];
+
+        $data += $this->counts($user);
+
+        return view('users.followings', $data);
+    }
+
+    public function followers($id)
+    {
+        $user = User::find($id);
+        $followers = $user->followers()->paginate(10);
+
+        $data = [
+            'user' => $user,
+            'users' => $followers,
+        ];
+
+        $data += $this->counts($user);
+
+        return view('users.followers', $data);
     }
    
 }
