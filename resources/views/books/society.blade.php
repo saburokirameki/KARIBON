@@ -63,7 +63,7 @@
                         </div>
                     @endif
                 @endforeach
-               {!! $books->render() !!}
+              <div class='paginate'>{!! $books->render() !!}</div>
         @endif
    
 @endsection
