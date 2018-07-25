@@ -16,7 +16,8 @@
     </div>
 @endsection
 
-@section('content')    
+@section('content') 
+<a class="toppage" href="{{ route('books.business') }}">PageTopへ</a>
     <div class="karireu-list">今すぐ借りられる本一覧</div>
     
     <ul class="nav nav-tabs nav-justified">
@@ -44,6 +45,7 @@
                                     <div class="panel-body">
                                         @if ($book->id)
                                             <p class="book-title"><a href="{{ route('books.show', $book->id) }}">{{ $book->name }}</a></p>
+                                            <a class="comment" href="{{ route('books.show', $book->id) }}"><span class="glyphicon glyphicon-comment"></span>{{  $book->microposts()->count() }}</a>
                                            @if (Auth::check())
                                                 @if (Auth::user()->is_having($book->id))
                                                 @else
