@@ -23,7 +23,9 @@
                         貸せる本を追加
                     </a>
             </div>
-        @endif 
+        @endif
+        <br>
+        <br>
         <ul class="nav nav-tabs nav-justified">
             <li role="presentation" class="{{ Request::is('users/'.$user->id) ? 'active' : '' }}"><a href="{{ route('users.show', ['id' => $user->id]) }}">貸せる本 <span class="badge">{{ $count_have_books }}</span></a></li>
             <li role="presentation" class="{{ Request::is('users/*/borrow') ? 'active' : '' }}"><a href="{{ route('users.borrow', ['id' => $user->id]) }}">借りている本 <span class="badge">{{ $count_notice_user }}</span></a></li>
@@ -42,7 +44,7 @@
             </div>
         </div>
         <div class="col-md-8">
-            <div class="alert alert-warning text-center" role="alert">
+            <div class="alert alert-success text-center" role="alert">
                 <h2>{{$user->name}}さんに<br/>『{{$user->book_name}}』の<br/>借し出し依頼送信済み！</h2>
             </div>
         </div>

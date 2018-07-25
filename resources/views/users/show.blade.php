@@ -12,7 +12,7 @@
         <div class="text-center">
             <h3>{{ $user->profile }}</h3>
             @if(Auth::id()==$user->id)
-            {!! link_to_route('users.edit', 'プロフィールを編集', ['id' => $user->id]) !!}
+            {!! link_to_route('users.edit', '自己紹介を書く', ['id' => $user->id]) !!}
             @endif
             @include('user_follow.follow_button', ['user' => $user])
         </div>
@@ -23,7 +23,9 @@
                         貸せる本を追加
                     </a>
             </div>
-        @endif 
+        @endif
+        <br>
+        <br>
         <ul class="nav nav-tabs nav-justified">
             <li role="presentation" class="{{ Request::is('users/'.$user->id) ? 'active' : '' }}"><a href="{{ route('users.show', ['id' => $user->id]) }}">貸せる本 <span class="badge">{{ $count_have_books }}</span></a></li>
             <li role="presentation" class="{{ Request::is('users/*/borrow') ? 'active' : '' }}"><a href="{{ route('users.borrow', ['id' => $user->id]) }}">借りている本 <span class="badge">{{ $count_notice_user }}</span></a></li>
@@ -37,9 +39,5 @@
     </div>
    @include('books.books')
     {!! $books->render() !!}
-    
-    @if(Auth::id()==$user->id)
-    <p class='text-right'>{!! link_to_route('users.taikai', '退会') !!}</p>
-    @endif
     
 @endsection

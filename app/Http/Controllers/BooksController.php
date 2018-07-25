@@ -83,7 +83,7 @@
         
         $books = $query->orderBy('updated_at', 'desc')->paginate(300);
         
-        return view('books.society', [
+        return view('books.rakuten', [
             'books' => $books,
         ]);
     }

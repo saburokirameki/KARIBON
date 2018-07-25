@@ -120,12 +120,19 @@ class UsersController extends Controller
         $count_have = $user->books()->count();
         $books = \DB::table('books')->join('book_user', 'books.id', '=', 'book_user.book_id')->select('books.*')->where('book_user.user_id', $user->id)->distinct()->paginate(20);
         
-        return view('users.show', [
+        
+        $data = [
             'user' => $user,
             'books' => $books,
             'count_have' => $count_have,
-        ]);
+        ];
+
+        $data += $this->counts($user);
+        
+        return view('users.show', $data);
     }
+    
+    
     public function borrow($id)
     {   
         $user = User::find($id);

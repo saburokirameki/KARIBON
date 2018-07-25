@@ -16,10 +16,11 @@
     </div>
 @endsection
 
-@section('content') 
+@section('content')
+<a class="toppage" href="{{ route('books.rakuten') }}">PageTopへ</a>
     <div class="karireu-list">今すぐ借りられる本一覧</div>
     
-    <ul class="nav nav-tabs nav-justified">
+<ul class="nav nav-tabs nav-justified">
     <li role="presentation" class="{{ Request::is('/' ) ? 'active' : '' }}"><a href="/">すべて</a></li>
     <li role="presentation" class="{{ Request::is('books/rakuten') ? 'active' : '' }}"><a href="{{ route('books.rakuten') }}">楽天</a></li>
     <li role="presentation" class="{{ Request::is('books/pc') ? 'active' : '' }}"><a href="{{ route('books.pc') }}">システム開発</a></li>
@@ -64,5 +65,6 @@
                 @endforeach
                {!! $books->render() !!}
         @endif
+   
 @endsection
     
