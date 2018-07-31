@@ -19,9 +19,9 @@
             </thead>
                 <tbody>
                     @foreach ($have_users as $user)
-                        <tr class="warning text-center">
-                            <td><a href="{{ route('users.show', $user->id) }}">{{ $user->name }}</a></td>
-                            <td>{{ $user->home }}</td>
+                        <tr class="warning">
+                            <td class="text-left"><img src="{{ Gravatar::src($user->name, 35) . '&d=mm' }}" alt="" class="img-circle"> <a href="{{ route('users.show', $user->id) }}">{{ $user->name }}</a></td>
+                            <td class="text-center">{{ $user->home }}</td>
                             <td>@include('books.notice_button', ['user' => $user, 'book' => $book])</td>
                         </tr>
                     @endforeach

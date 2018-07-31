@@ -2,7 +2,7 @@
 
 @section('content')
 <a class="toppage" href="/">Top Pageに戻る</a>
-    <h1 class="kariru-search">{{ $user->name }}さんに通知が送られました。</h1>
+    <h1 class="kariru-search"><a href="{{ route('users.show', $user->id) }}">{{ $user->name }}</a>({{ $user->home }})さんに通知が送られました。</h1>
     <br/>
     <h1 class="text-center">今後の流れ</h1>
     <article class="comic">
@@ -15,7 +15,7 @@
   </div>
   <div class="panel">
     <p class="text bottom-right">Step 2</p>
-    <h2>Say "Hello!"<br/>to {{ $user->name }}</h2>
+    <h2>Say "Hello!" to <a href="{{ route('users.show', $user->id) }}">{{ $user->name }}</a></h2>
     <div class="hero1" >
     <img src="/images/hero1.png" alt="hero">
     </div>

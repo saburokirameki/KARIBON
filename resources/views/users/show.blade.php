@@ -8,6 +8,7 @@
         </div>
         <div class="name text-center">
             <h1>{{ $user->name }}</h1>
+            <h2>({{ $user->home }})</h2>
         </div>
         <div class="text-center">
             <h3>{{ $user->profile }}</h3>
