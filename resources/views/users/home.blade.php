@@ -17,8 +17,8 @@
             </thead>
             <tbody>
                 @foreach ($users as $user)
-                 <tr>
-                    <td><a href="{{ route('users.show', $user->id) }}">{{ $user->name }}</a></td>
+                <tr class="warning">
+                    <td class="text-left"><img src="{{ Gravatar::src($user->name, 35) . '&d=mm' }}" alt="" class="img-circle"> <a href="{{ route('users.show', $user->id) }}">{{ $user->name }}</a></td>
                     <td>{{ $user->home }}</td>
                     <td>{{ $user->books()->count() }}</td>
                 </tr>

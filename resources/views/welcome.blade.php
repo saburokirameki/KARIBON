@@ -68,7 +68,12 @@
         @else
             <br/>
             <br/>
-            <div class = "kariru-search text-center">検索ヒット件数：０</div>
+            <div class = "kariru-search text-left">「{!! $search !!}」に一致する本は見つかりませんでした。
+            </div>
+            <h3>検索のヒント:</h3>
+            <h4>・タイトルに誤字や脱字がないか確認してみてください</h4>
+            <h4>・タイトルの一部キーワードで検索を試してみてください</h4>
+            
         @endif
         
        
